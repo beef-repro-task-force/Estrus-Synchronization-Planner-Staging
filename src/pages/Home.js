@@ -28,7 +28,7 @@ function Home() {
 
   // grab the data from the json file and split it into arrays
   useEffect(() => {
-    fetch("/Estrus-Synchronization-Planner/json-files/data.json")
+    fetch("/Estrus-Synchronization-Planner-Staging/json-files/data.json")
       .then((response) => response.json())
       .then((data) => {
         setLoadingContainer(false);
