@@ -1,6 +1,6 @@
 
 .calendar-container{
-    padding: 20px;
+  padding: 20px;
 }
 
 .fc-event-title {
@@ -28,12 +28,12 @@
 
 @media print {
 
-    body, html, #wrapper {
-        width: 100%;
-       }
+  body, html, #wrapper {
+      width: 100%;
+     }
 
-      div {
-       overflow: visible !important;
-      }
+    div {
+     overflow: visible !important;
+    }
 
 }
