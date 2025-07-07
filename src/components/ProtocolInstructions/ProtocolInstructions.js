@@ -25,8 +25,6 @@ const ProtocolInstructions = (props) => {
   const [CalendarOrListView, setCalendarOrListView] = useState(0);
   let ListOfInstrucitons =
     PInstructions.Protocols[0][SynchronizationProtocol].instructions;
-  let ListOfCalendarInstruction =
-    PInstructions.Protocols[0][SynchronizationProtocol].instructions;
 
   //Create then download the iCalendar file
   const downloadICS = () => {
@@ -138,7 +136,7 @@ const ProtocolInstructions = (props) => {
         />
       ) : (
         <CalendarView
-          ListOfCalendarInstruction={ListOfCalendarInstruction}
+          ListOfInstrucitons={ListOfInstrucitons}
           DateToStartBreeding={DateToStartBreeding}
           SynchronizationProtocol={SynchronizationProtocol}
           GNRH={GNRH}

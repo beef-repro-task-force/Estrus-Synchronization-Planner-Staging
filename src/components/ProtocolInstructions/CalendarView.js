@@ -7,19 +7,20 @@ import "../../style/calendarView.css";
 
 const CalendarView = (props) => {
   const {
-    ListOfCalendarInstruction,
+    ListOfInstrucitons,
     DateToStartBreeding,
     SynchronizationProtocol,
     GNRH,
     PG,
     SemenType,
+    BullTurnIn,
   } = props;
 
 
   // text changes
   let selectedGNRH;
   let selectedPG;
-  let listOfCalendarInstruction = JSON.parse(JSON.stringify(ListOfCalendarInstruction));
+  let listOfInstrucitons = JSON.parse(JSON.stringify(ListOfInstrucitons));
   let ai_standing_heat_txt = "";
   let ai_with_sexed_semen = "";
   let ai_with_sexed_semen_showing = "";
@@ -29,10 +30,9 @@ const CalendarView = (props) => {
   let estrus_detection_aid = "";
   let ai_females_showing_estrus = "";
 
-  let mga_time_change = dayjs().startOf("day");
-  let mga_time_change_2 = dayjs().startOf("day");
-  let mga_time_change_3 = dayjs().startOf("day");
-
+  let mga_time_change = DateToStartBreeding.clone().startOf("day");
+  let mga_time_change_2 = DateToStartBreeding.clone().startOf("day");
+  let mga_time_change_3 = DateToStartBreeding.clone().startOf("day");
   let dateToStartBreeding = DateToStartBreeding.clone();
 
   mga_time_change = mga_time_change.subtract(19, "day").startOf("day");
@@ -63,44 +63,6 @@ const CalendarView = (props) => {
     nonestrous_females = "Inject 2cc Cystorelin (GnRH) to all females.";
     cidr_device = "Remove the CIDR device from each female.";
   }
-
-  //search instruction for <<ai_after_standing_heat>>
-  listOfCalendarInstruction.forEach((item) => {
-    for (let param in item) {
-      if (item[param] === "<<ai_after_standing_heat>>")
-        item[param] = ai_standing_heat_txt;
-      if (item[param] === "<<ai_sexed_semen>>")
-        item[param] = ai_with_sexed_semen;
-      if (item[param] === "<<ai_with_sexed_semen_showing>>")
-        item[param] = ai_with_sexed_semen_showing;
-      if (item[param] === "<<ai_with_sexed_semen_plus_conventional>>")
-        item[param] = ai_with_sexed_semen_plus_conventional;
-      if (item[param] === "<<nonestrous>>") item[param] = nonestrous_females;
-      if (item[param] === "<<cidr_device>>") item[param] = cidr_device;
-      if (item[param] === "<<estrus_detection_aid>>")
-        item[param] = estrus_detection_aid;
-      if (item[param] === "<<ai_females_showing_estrus>>")
-        item[param] = ai_females_showing_estrus;
-      if (item[param] === "<<current_time>>")
-        item[param] = dateToStartBreeding.format('h:mm A');
-
-      if (item[param] === "<<mga_time_change_3>>")
-        item[param] =
-          "Continue feeding until " +
-          mga_time_change_3.format('MM/DD/YYYY') +
-          ".";
-      if (item[param] === "<<mga_time_change_2>>")
-        item[param] =
-          "Continue feeding until " +
-          mga_time_change_2.format('MM/DD/YYYY') +
-          ".";
-      if (item[param] === "<<mga_time_change>>")
-        item[param] =
-          "Continue feeding until " +
-          mga_time_change.format('MM/DD/YYYY') +
-          ".";
-    }
-  });
 
   switch (true) {
     case GNRH === "Cystorelin":
@@ -154,163 +116,107 @@ const CalendarView = (props) => {
       break;
   }
 
-  const length = Object.keys(listOfCalendarInstruction).length;
+  // Update the instructions with the date and time
+  listOfInstrucitons.forEach((instruction, key) => {
+    const pgInstruction = listOfInstrucitons.find(item => item.isPg);
+    const pgDate = dateToStartBreeding.clone().add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
+    const breedingDate = dateToStartBreeding.clone();
+    let dateReference = breedingDate;
 
-  for (var i = 0; i < length; i++) {
-    var marginOfErr = -1;
-    var stepX = "step";
-
-    // subtract time
-    for (var j = 1; j < 6; j++) {
-      stepX = "step" + j;
-      // subtract time
-      if (JSON.stringify(listOfCalendarInstruction[i][stepX]) !== undefined) {
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.416666667")
-        ) {
-          marginOfErr = 0;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.333333333")
-        ) {
-          marginOfErr = 2;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.291666667")
-        ) {
-          marginOfErr = 3;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.25")) {
-          marginOfErr = 4;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.166666667")
-        ) {
-          marginOfErr = 6;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("-12hrs")) {
-          marginOfErr = 12;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("-15hrs")) {
-          marginOfErr = 15;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("-18hrs")) {
-          marginOfErr = 18;
-        }
-        if (marginOfErr >= 0) {
-          let tempDateToStartBreeding = dateToStartBreeding.clone();
-          tempDateToStartBreeding = tempDateToStartBreeding.subtract(
-            marginOfErr,
-            "hour"
-          );
-          listOfCalendarInstruction[i][stepX] =
-            tempDateToStartBreeding.format("h:mm A");
-
-          tempDateToStartBreeding = tempDateToStartBreeding.add(
-            marginOfErr,
-            "hour"
-          );
-          marginOfErr = -1;
-        }
-      }
-
-      // add time
-      if (JSON.stringify(listOfCalendarInstruction[i][stepX]) !== undefined) {
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.5")) {
-          marginOfErr = 2;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.541666667")
-        ) {
-          marginOfErr = 3;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.583333333")
-        ) {
-          marginOfErr = 4;
-        }
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("0.666666667")
-        ) {
-          marginOfErr = 6;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("+9hrs")) {
-          marginOfErr = 9;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("+12hrs")) {
-          marginOfErr = 12;
-        }
-        if (JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("+18hrs")) {
-          marginOfErr = 18;
-        }
-        if (marginOfErr >= 0) {
-          let tempDateToStartBreeding = dateToStartBreeding.clone();
-          tempDateToStartBreeding = tempDateToStartBreeding.add(
-            marginOfErr,
-            "hour"
-          );
-          listOfCalendarInstruction[i][stepX] =
-            tempDateToStartBreeding.format("h:mm A");
-
-          tempDateToStartBreeding = tempDateToStartBreeding.subtract(
-            marginOfErr,
-            "hour"
-          );
-          marginOfErr = -1;
-        }
-
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes(
-            "2cc Cystorelin"
-          )
-        ) {
-          listOfCalendarInstruction[i][stepX] = JSON.parse(
-            JSON.stringify(listOfCalendarInstruction[i][stepX]).replace(
-              "2cc Cystorelin (GnRH)",
-              selectedGNRH
-            )
-          );
-        }
-
-        if (
-          JSON.stringify(listOfCalendarInstruction[i][stepX]).includes("5cc Lutalyse")
-        ) {
-          listOfCalendarInstruction[i][stepX] = JSON.parse(
-            JSON.stringify(listOfCalendarInstruction[i][stepX]).replace(
-              "5cc Lutalyse (PG)",
-              selectedPG
-            )
-          );
-        }
-      }
+    if (instruction.fromPg) {
+      dateReference = pgDate;
     }
-  }
+
+    let dateAdjustment = instruction.dateAdjustment;
+
+    if (instruction.dateAdjustment === "BullTurnIn") {
+      dateAdjustment = (parseInt(BullTurnIn, 10)) * 24; // convert to hours
+    }
+
+    const mainDate = dateReference.add(dateAdjustment, instruction.dateAdjustmentUnit);
+
+    instruction['dateReference'] = dateReference.format("MM/DD/YYYY HH:mm");
+    instruction['date'] = mainDate.format("MM/DD/YYYY");
+    instruction['dateTime'] = mainDate.format("MM/DD/YYYY HH:mm");
+    instruction['dateDay'] = mainDate.format("dddd");
+
+    instruction.lines.forEach((line) => {
+      // update placeholders
+      if (line.label === "<<ai_after_standing_heat>>") {
+        line.label = ai_standing_heat_txt;
+      }
+      if (line.label === "<<ai_sexed_semen>>") {
+        line.label = ai_with_sexed_semen;
+      }
+
+      if (line.label === "<<ai_with_sexed_semen_showing>>") {
+        line.label = ai_with_sexed_semen_showing;
+      }
+      if (line.label === "<<ai_with_sexed_semen_plus_conventional>>") {
+        line.label = ai_with_sexed_semen_plus_conventional;
+      }
+      if (line.label === "<<nonestrous>>") {
+        line.label = nonestrous_females;
+      }
+      if (line.label === "<<cidr_device>>") {
+        line.label = cidr_device;
+      }
+      if (line.label === "<<estrus_detection_aid>>") {
+        line.label = estrus_detection_aid;
+      }
+      if (line.label === "<<ai_females_showing_estrus>>") {
+        line.label = ai_females_showing_estrus;
+      }
+      if (line.label === "<<current_time>>") {
+        line.label = dateToStartBreeding.toLocaleString("en-US", {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        });
+      }
+      if (line.label === "<<mga_time_change_3>>") {
+        line.label = "Continue feeding until " + mga_time_change_3.format('MM/DD/YYYY') + ".";
+      }
+      if (line.label === "<<mga_time_change_2>>") {
+        line.label = "Continue feeding until " + mga_time_change_2.format('MM/DD/YYYY') + ".";
+      }
+      if (line.label === "<<mga_time_change>>") {
+        line.label = "Continue feeding until " + mga_time_change.format('MM/DD/YYYY') + ".";
+      }
+
+      // Update the instructions with the selected GNRH and PG
+      if (line.label?.includes(
+        "2cc Cystorelin"
+      )) {
+        line['label'] = line['label'].replace("2cc Cystorelin (GnRH)", selectedGNRH);
+      }
+
+      if (line.label?.includes(
+        "5cc Lutalyse"
+      )) {
+        line['label'] = line['label'].replace("5cc Lutalyse (PG)", selectedPG);
+      }
+
+      // Add line with hour if it's that type of line
+      if (line.hourAdjustment) {
+        line['label'] = mainDate.add(line.hourAdjustment, "hour").format("h:mm A");
+      }
+    })
+  })
 
   let calEventArr = [];
 
-  listOfCalendarInstruction.forEach((instruction) => {
-    let tempDate = dateToStartBreeding.clone();
-
-    if (parseInt(instruction.OnDay) < 0) {
-      tempDate = tempDate.add(parseInt(instruction.OnDay) + 1, "day");
-    } else {
-      tempDate = tempDate.add(parseInt(instruction.OnDay), "day");
-    }
-
-    for (let item in instruction) {
-      if (item !== "OnDay") {
-        let newItemObj = {
-          title: instruction[item],
-          display: "auto",
-          start: tempDate.format('YYYY-MM-DD'),
-        };
-        calEventArr.push(newItemObj);
-      }
-    }
+  listOfInstrucitons.forEach((instruction) => {
+    instruction.lines.filter(line => line.label).forEach((line) => {
+      calEventArr.push({
+        title: line.label,
+        display: "auto",
+        start: dayjs(instruction['date'], "MM/DD/YYYY").format("YYYY-MM-DD"),
+      });
+    })
   });
 
   calEventArr.reverse();
-
   return (
     <div className="calendar-container">
       <h2>Protocol #{SynchronizationProtocol}</h2>
