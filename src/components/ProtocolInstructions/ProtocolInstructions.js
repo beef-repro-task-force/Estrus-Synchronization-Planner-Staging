@@ -237,7 +237,6 @@ const ProtocolInstructions = (props) => {
       let eventDictionary = {};
       let ProtocolEventDate = new Date(DateToStartBreeding);
       ProtocolEventDate.setDate(dayjs(instruction.date).date());
-      console.log(instruction.date);
       //ics.createEvents api arguements found https://www.npmjs.com/package/ics
       eventDictionary["title"] = instruction.lines[0]?.label || "";
       eventDictionary["description"] = description;
@@ -251,8 +250,6 @@ const ProtocolInstructions = (props) => {
       eventDictionary["duration"] = { hours: 1 };
       listOfEvents.push(eventDictionary);
     });
-
-    console.log(listOfEvents);
 
     const { error, value } = ics.createEvents(listOfEvents);
 
