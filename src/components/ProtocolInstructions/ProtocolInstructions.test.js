@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ProtocolInstructions from './ProtocolInstructions';
+import dayjs from 'dayjs';
 
 jest.mock('./CalendarView', () => {
   return function MockCalendarView(props) {
@@ -19,7 +20,7 @@ describe('ProtocolInstructions Component', () => {
   const mockProps = {
     UserFlow: 3,
     setUserFlow: jest.fn(),
-    DateToStartBreeding: new Date('2024-03-20'),
+    DateToStartBreeding: dayjs('2024-03-20'),
     SynchronizationProtocol: 1,
     GNRH: 'Cystorelin',
     PG: 'Lutalyse',

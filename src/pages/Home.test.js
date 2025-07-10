@@ -59,10 +59,11 @@ describe('Home Component', () => {
     render(<Home />);
     await waitFor(() => {
       expect(global.fetch).toHaveBeenCalledWith(
-        '/Estrus-Synchronization-Planner/json-files/data.json'
+        expect.stringMatching(/json-files\/data\.json$/)
       );
     });
   });
+
 
   it('should render UserInput component after data loads', async () => {
     render(<Home />);

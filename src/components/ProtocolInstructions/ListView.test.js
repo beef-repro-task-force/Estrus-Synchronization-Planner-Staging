@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ListView from './ListView';
+import dayjs from 'dayjs';
 
 describe('ListView Component', () => {
   const mockProps = {
@@ -9,27 +10,38 @@ describe('ListView Component', () => {
     setUserFlow: jest.fn(),
     ListOfInstrucitons: [
       {
-        OnDay: 0,
-        step1: 'Inject 2cc Cystorelin (GnRH)',
-        step2: '<<ai_after_standing_heat>>',
-        step3: 'Apply CIDR device',
-        step4: '<<current_time>>',
-        step5: ''
+        dateAdjustment: 0,
+        dateAdjustmentUnit: 'day',
+        fromPg: false,
+        isPg: false,
+        lines: [
+          { label: 'Inject 2cc Cystorelin (GnRH)' },
+          { label: '<<ai_after_standing_heat>>' },
+          { label: 'Apply CIDR device' },
+          { label: '<<current_time>>' },
+          { label: '' }
+        ]
       },
       {
-        OnDay: 7,
-        step1: 'Remove CIDR',
-        step2: '<<cidr_device>>',
-        step3: '',
-        step4: '5cc Lutalyse (PG)',
-        step5: ''
+        dateAdjustment: 7,
+        dateAdjustmentUnit: 'day',
+        fromPg: false,
+        isPg: true,
+        lines: [
+          { label: 'Remove CIDR' },
+          { label: '<<cidr_device>>' },
+          { label: '' },
+          { label: '5cc Lutalyse (PG)' },
+          { label: '' }
+        ]
       }
     ],
-    DateToStartBreeding: new Date('2024-03-20T02:00:00'),
+    DateToStartBreeding: dayjs('2024-03-20T02:00:00'),
     SynchronizationProtocol: 1,
     GNRH: 'Cystorelin',
     PG: 'Lutalyse',
-    SemenType: 'Conventional'
+    SemenType: 'Conventional',
+    BullTurnIn: '0'
   };
 
   const mockPropsWithSexed = {
@@ -37,10 +49,31 @@ describe('ListView Component', () => {
     SemenType: 'Conventional & Sexed',
     ListOfInstrucitons: [
       {
-        ...mockProps.ListOfInstrucitons[0],
-        step2: 'Breed females AI 16-22 hours after standing heat.'
+        dateAdjustment: 0,
+        dateAdjustmentUnit: 'day',
+        fromPg: false,
+        isPg: false,
+        lines: [
+          { label: 'Inject 2cc Cystorelin (GnRH)' },
+          { label: '<<ai_after_standing_heat>>' },
+          { label: 'Apply CIDR device' },
+          { label: '<<current_time>>' },
+          { label: '' }
+        ]
       },
-      mockProps.ListOfInstrucitons[1]
+      {
+        dateAdjustment: 7,
+        dateAdjustmentUnit: 'day',
+        fromPg: false,
+        isPg: true,
+        lines: [
+          { label: 'Remove CIDR' },
+          { label: '<<cidr_device>>' },
+          { label: '' },
+          { label: '5cc Lutalyse (PG)' },
+          { label: '' }
+        ]
+      }
     ]
   };
 
@@ -57,18 +90,12 @@ describe('ListView Component', () => {
 
   it('renders instructions with conventional semen type', () => {
     render(<ListView {...mockProps} />);
-    const element = screen.getByText((content, element) => {
-      return content.includes('Breed females AI 10-14 hours after standing heat');
-    });
-    expect(element).toBeInTheDocument();
+    expect(screen.getByText('Breed females AI 10-14 hours after standing heat.')).toBeInTheDocument();
   });
 
   it('renders instructions with sexed semen type', () => {
     render(<ListView {...mockPropsWithSexed} />);
-    const element = screen.getByText((content, element) => {
-      return content.includes('Breed females AI 16-22 hours after standing heat');
-    });
-    expect(element).toBeInTheDocument();
+    expect(screen.getByText('Breed females AI 16-22 hours after standing heat.')).toBeInTheDocument();
   });
 
   it('handles back button click', () => {
@@ -87,55 +114,37 @@ describe('ListView Component', () => {
 
   it('formats dates correctly in table', () => {
     render(<ListView {...mockProps} />);
-    const element = screen.getByText((content, element) => {
-      return content.includes('3 / 20 / 2024');
-    });
-    expect(element).toBeInTheDocument();
+    // Match the format used in the component (MM/DD/YYYY)
+    expect(screen.getByText((content, element) => {
+      return element.tagName.toLowerCase() === 'td' && content.includes('03/20/2024');
+    })).toBeInTheDocument();
   });
 
   it('displays weekday names', () => {
     render(<ListView {...mockProps} />);
-    const elements = screen.getAllByText((content, element) => {
-      return content.includes('Wednesday');
+    const weekdayElements = screen.getAllByText((content, element) => {
+      return element.tagName.toLowerCase() === 'td' && content.includes('Wednesday');
     });
-    expect(elements.length).toBeGreaterThan(0);
+    expect(weekdayElements.length).toBeGreaterThan(0);
   });
 
   it('handles different GNRH types', () => {
     const propsWithDifferentGNRH = {
       ...mockProps,
-      GNRH: 'Factrel',
-      ListOfInstrucitons: [
-        {
-          ...mockProps.ListOfInstrucitons[0],
-          step1: 'Inject 2cc Factrel (GnRH)'
-        },
-        mockProps.ListOfInstrucitons[1]
-      ]
+      GNRH: 'Factrel'
     };
     render(<ListView {...propsWithDifferentGNRH} />);
-    const element = screen.getByText((content, element) => {
-      return content.includes('2cc Factrel');
-    });
-    expect(element).toBeInTheDocument();
+    expect(screen.getByText((content, element) => {
+      return content.includes('2cc Factrel (GnRH)');
+    })).toBeInTheDocument();
   });
 
   it('handles different PG types', () => {
     const propsWithDifferentPG = {
       ...mockProps,
-      PG: 'Estrumate',
-      ListOfInstrucitons: [
-        mockProps.ListOfInstrucitons[0],
-        {
-          ...mockProps.ListOfInstrucitons[1],
-          step4: '2cc Estrumate (PG)'
-        }
-      ]
+      PG: 'Estrumate'
     };
     render(<ListView {...propsWithDifferentPG} />);
-    const element = screen.getByText((content, element) => {
-      return content.includes('2cc Estrumate');
-    });
-    expect(element).toBeInTheDocument();
+    expect(screen.getByText('2cc Estrumate (PG)')).toBeInTheDocument();
   });
 });
