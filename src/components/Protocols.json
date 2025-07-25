@@ -3860,7 +3860,7 @@
             "lines": [
               { "label": "Remove the CIDR device from each female." },
               { "label": "Inject 5cc Lutalyse (PG) in all females. " },
-              { "label": "+12hrs" },
+              { "hourAdjustment": "0" },
               {
                 "label": "Give 2nd injection, 5cc Lutalyse (PG) to all females 8 +/-2 hours after first injection"
               }

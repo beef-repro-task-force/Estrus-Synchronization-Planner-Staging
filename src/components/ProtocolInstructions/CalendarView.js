@@ -207,16 +207,16 @@ const CalendarView = (props) => {
   let calEventArr = [];
 
   listOfInstrucitons.forEach((instruction) => {
-    instruction.lines.filter(line => line.label).forEach((line) => {
+    instruction.lines.filter(line => line.label).forEach((line, index) => {
       calEventArr.push({
         title: line.label,
         display: "auto",
-        start: dayjs(instruction['date'], "MM/DD/YYYY").format("YYYY-MM-DD"),
+        start: dayjs(instruction['dateTime'], "MM/DD/YYYY").format("YYYY-MM-DD"),
+        index: index,
       });
     })
   });
 
-  calEventArr.reverse();
   return (
     <div className="calendar-container">
       <h2>Protocol #{SynchronizationProtocol}</h2>
@@ -230,6 +230,7 @@ const CalendarView = (props) => {
             center: "title",
             right: "next",
           }}
+          eventOrder="index"
           events={calEventArr}
           height={"auto"}
           aspectRatio={1}
