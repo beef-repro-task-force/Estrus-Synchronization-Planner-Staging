@@ -205,6 +205,7 @@ const CalendarView = (props) => {
   })
 
   let calEventArr = [];
+  let minDate = dayjs();
 
   listOfInstrucitons.forEach((instruction) => {
     instruction.lines.filter(line => line.label).forEach((line, index) => {
@@ -214,8 +215,14 @@ const CalendarView = (props) => {
         start: dayjs(instruction['dateTime'], "MM/DD/YYYY").format("YYYY-MM-DD"),
         index: index,
       });
+
+      if (dayjs(instruction['dateTime'], "MM/DD/YYYY").isBefore(minDate)) {
+        minDate = dayjs(instruction['dateTime'], "MM/DD/YYYY");
+      }
     })
   });
+
+
 
   return (
     <div className="calendar-container">
@@ -230,6 +237,7 @@ const CalendarView = (props) => {
             center: "title",
             right: "next",
           }}
+          initialDate={minDate.format("YYYY-MM-DD")}
           eventOrder="index"
           events={calEventArr}
           height={"auto"}

@@ -2777,7 +2777,7 @@
             "lines": [
               { "label": "Inject 5cc Lutalyse (PG) in all females. " },
               { "label": "<<estrus_detection_aid>>" },
-              { "label": "<<current_time>>" }
+              { "hourAdjustment": "0" }
             ],
             "isPg": true,
             "dateAdjustmentUnit": "hours"
