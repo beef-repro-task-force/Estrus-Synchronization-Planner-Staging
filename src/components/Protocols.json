@@ -4702,7 +4702,7 @@
         "calendar": [],
         "instructions": [
           {
-            "dateAdjustment": "-35",
+            "dateAdjustment": "-840",
             "lines": [
               { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
               { "label": "<<mga_time_change_3>>" }
