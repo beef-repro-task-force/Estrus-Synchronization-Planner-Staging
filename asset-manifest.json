@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Estrus-Synchronization-Planner-Staging/static/css/main.2df93ee4.css",
-    "main.js": "/Estrus-Synchronization-Planner-Staging/static/js/main.074e532e.js",
+    "main.js": "/Estrus-Synchronization-Planner-Staging/static/js/main.90601917.js",
     "static/media/brtf_full-color.png": "/Estrus-Synchronization-Planner-Staging/static/media/brtf_full-color.5e524e30b5813e9063c8.png",
     "index.html": "/Estrus-Synchronization-Planner-Staging/index.html",
     "main.2df93ee4.css.map": "/Estrus-Synchronization-Planner-Staging/static/css/main.2df93ee4.css.map",
-    "main.074e532e.js.map": "/Estrus-Synchronization-Planner-Staging/static/js/main.074e532e.js.map"
+    "main.90601917.js.map": "/Estrus-Synchronization-Planner-Staging/static/js/main.90601917.js.map"
   },
   "entrypoints": [
     "static/css/main.2df93ee4.css",
-    "static/js/main.074e532e.js"
+    "static/js/main.90601917.js"
   ]
 }
