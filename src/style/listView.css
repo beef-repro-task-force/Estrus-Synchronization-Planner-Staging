@@ -3,73 +3,81 @@ td, th {
     text-align: left;
     padding: 16px;
   }
-  
+
   .instruction-container{
       width: 100%;
       max-width: 850px;
       margin: 0px auto 0px auto;
   }
-  
-  
+
+
   .centerTable {
     display: flex;
     justify-content: center;
   }
-  
+
   .bread-crumb-class{
     width: 100%;
     max-width: 850px;
     margin: 0px auto 0px auto!important;
     cursor: pointer;
   }
-  
+
   .btn-box .MuiButtonBase-root{
     color: #A23A41!important;
     border: 2px solid #A23A41!important;
     margin: 10px 15px!important;
-    
+
   }
-  
+
   .calendar-btns .MuiButtonBase-root:hover{
     background-color: white!important;
   }
-  
+
   .calendar-btns .MuiButtonBase-root{
     font-weight: bold!important;
     color: #A23A41!important;
-  
+
   }
-  
+
   @media print {
     tr {
       page-break-inside: avoid;
     }
 
     header {
-      visibility: hidden;
+      display: none !important;
     }
-  
+
     .instruction-section{
       width: 500px;
     }
-  
+
     .MuiButtonBase-root{
-      visibility: hidden;
+      display: none !important;
     }
-  
+
     .bread-crumb-class{
-      visibility: hidden;
+      display: none !important;
     }
-  
+
     .copyright-footer-loc{
-      visibility: hidden;
+      display: none !important;
     }
-  
+
     .link-grid-footer{
-      visibility: hidden;
+      display: none !important;
     }
-  
+
     .Footer{
-      visibility: hidden;
+      display: none !important;
+    }
+
+    .btn-box {
+      display: none !important;
+    }
+
+    div[role="contentinfo"] {
+      display: none !important;
     }
   }

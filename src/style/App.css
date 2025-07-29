@@ -28,3 +28,32 @@
   color: #61dafb;
 }
 
+.logo-header {
+  background-color: #eeeeee;
+}
+
+
+@media print {
+  .logo-header {
+    height: 100px;
+    width: 100%;
+  }
+
+  .logo-header img {
+    height: 100px;
+    width: auto;
+    max-width: inherit;
+  }
+
+  .instruction-container,
+  nav,
+  header {
+    display: none;
+  }
+
+  td, th {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+}
