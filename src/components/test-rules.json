@@ -328,54 +328,6 @@
               "value": "Bos Taurus"
             },
             {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional & Sexed"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
-              "value": "Estrus AI"
-            }
-          ]
-        },
-        "event": {
-          "type": "7"
-        }
-      },
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional & Sexed"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
-              "value": "Estrus AI + Clean-up AI"
-            }
-          ]
-        },
-        "event": {
-          "type": "16"
-        }
-      },
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
               "fact": "SystemType",
               "operator": "equal",
               "value": "Fixed-Time AI"
@@ -548,30 +500,6 @@
             {
               "fact": "SystemType",
               "operator": "equal",
-              "value": "Estrus AI"
-            }
-          ]
-        },
-        "event": {
-          "type": "14"
-        }
-      },
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional & Sexed"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
               "value": "Estrus AI + Clean-up AI"
             }
           ]
@@ -719,30 +647,6 @@
         },
         "event": {
           "type": "35"
-        }
-      },
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional & Sexed"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
-              "value": "Estrus AI"
-            }
-          ]
-        },
-        "event": {
-          "type": "34"
         }
       },
       {
@@ -1106,6 +1010,54 @@
         },
         "event": {
           "type": "46"
+        }
+      },
+      {
+        "conditions": {
+          "all": [
+            {
+              "fact": "BreedType",
+              "operator": "equal",
+              "value": "Bos Taurus"
+            },
+            {
+              "fact": "SemenType",
+              "operator": "equal",
+              "value": "Conventional"
+            },
+            {
+              "fact": "SystemType",
+              "operator": "equal",
+              "value": "Estrus AI"
+            }
+          ]
+        },
+        "event": {
+          "type": "30"
+        }
+      },
+      {
+        "conditions": {
+          "all": [
+            {
+              "fact": "BreedType",
+              "operator": "equal",
+              "value": "Bos Taurus"
+            },
+            {
+              "fact": "SemenType",
+              "operator": "equal",
+              "value": "Conventional & Sexed"
+            },
+            {
+              "fact": "SystemType",
+              "operator": "equal",
+              "value": "Estrus AI"
+            }
+          ]
+        },
+        "event": {
+          "type": "30"
         }
       }
     ],
@@ -1547,30 +1499,6 @@
       }
     ],
     "4": [
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
-              "value": "Estrus AI"
-            }
-          ]
-        },
-        "event": {
-          "type": "30"
-        }
-      },
       {
         "conditions": {
           "all": [

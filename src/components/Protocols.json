@@ -1639,7 +1639,7 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "48",
+            "dateAdjustment": "48",
             "lines": [
               { "label": "Continue heat detection." },
               { "label": "<<ai_after_standing_heat>>" }
@@ -1716,7 +1716,7 @@
         "calendar": [],
         "instructions": [
           {
-            "OnDay": "-840",
+            "dateAdjustment": "-840",
             "lines": [
               { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
               { "label": "<<mga_time_change>>" }
@@ -1724,7 +1724,7 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "-528",
+            "dateAdjustment": "-528",
             "lines": [
               { "label": "Last day to feed MGA at .5 mg/hd/day." }
             ],
@@ -1738,14 +1738,14 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "-240",
+            "dateAdjustment": "-240",
             "lines": [
               { "label": "Inject 2cc Cystorelin (GnRH) to all females." }
             ],
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "-72",
+            "dateAdjustment": "-72",
             "lines": [
               { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
               { "hourAdjustment": "0" }
@@ -1754,7 +1754,7 @@
             "isPg": true
           },
           {
-            "OnDay": "0",
+            "dateAdjustment": "0",
             "lines": [
               { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
               { "label": "Fixed Time AI between:" },
@@ -1764,7 +1764,7 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "BullTurnIn",
+            "dateAdjustment": "BullTurnIn",
             "lines": [
               { "label": "Turn clean up bulls in with females." },
               {
@@ -1774,7 +1774,7 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "OnDay": "504",
+            "dateAdjustment": "504",
             "lines": [{ "label": "21 Days since last PG" }],
             "fromPg": true,
             "dateAdjustmentUnit": "hours"
