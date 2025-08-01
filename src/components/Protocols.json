@@ -4827,11 +4827,11 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "dateAdjustment": "-30",
+            "dateAdjustment": "-48",
             "lines": [
               { "label": "Remove the CIDR device from each female." },
               { "label": "Inject 5cc Lutalyse (PG) in all females at: " },
-              { "hourAdjustment": "0" }
+              { "hourAdjustment": "18" }
             ],
             "dateAdjustmentUnit": "hours"
           },
