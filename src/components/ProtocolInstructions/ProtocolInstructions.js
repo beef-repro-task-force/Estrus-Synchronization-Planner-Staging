@@ -233,7 +233,6 @@ const ProtocolInstructions = (props) => {
 
     listOfInstrucitons.forEach((instruction) => {
       let description = instruction.lines.map((line) => line.label).join("\n");
-      console.log(instruction);
       let eventDictionary = {};
       eventDictionary["title"] = description || "";
       eventDictionary["description"] = description;
@@ -250,8 +249,6 @@ const ProtocolInstructions = (props) => {
       eventDictionary["duration"] = { hours: 1 };
       listOfEvents.push(eventDictionary);
     });
-
-    console.log(listOfEvents);
 
     const { error, value } = ics.createEvents(listOfEvents);
 
