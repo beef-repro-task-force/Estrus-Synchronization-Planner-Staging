@@ -235,7 +235,7 @@ const ProtocolInstructions = (props) => {
       let description = instruction.lines.map((line) => line.label).join("\n");
       console.log(instruction);
       let eventDictionary = {};
-      eventDictionary["title"] = instruction.lines[0]?.label || "";
+      eventDictionary["title"] = description || "";
       eventDictionary["description"] = description;
 
       const eventDate = dayjs(instruction.dateTime, "MM/DD/YYYY HH:mm");
