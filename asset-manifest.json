@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Estrus-Synchronization-Planner-Staging/static/css/main.5c6c764e.css",
-    "main.js": "/Estrus-Synchronization-Planner-Staging/static/js/main.14638a54.js",
+    "main.css": "/Estrus-Synchronization-Planner-Staging/static/css/main.b3c80b71.css",
+    "main.js": "/Estrus-Synchronization-Planner-Staging/static/js/main.e4576ac8.js",
     "static/media/brtf_full-color.png": "/Estrus-Synchronization-Planner-Staging/static/media/brtf_full-color.5e524e30b5813e9063c8.png",
     "index.html": "/Estrus-Synchronization-Planner-Staging/index.html",
-    "main.5c6c764e.css.map": "/Estrus-Synchronization-Planner-Staging/static/css/main.5c6c764e.css.map",
-    "main.14638a54.js.map": "/Estrus-Synchronization-Planner-Staging/static/js/main.14638a54.js.map"
+    "main.b3c80b71.css.map": "/Estrus-Synchronization-Planner-Staging/static/css/main.b3c80b71.css.map",
+    "main.e4576ac8.js.map": "/Estrus-Synchronization-Planner-Staging/static/js/main.e4576ac8.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c6c764e.css",
-    "static/js/main.14638a54.js"
+    "static/css/main.b3c80b71.css",
+    "static/js/main.e4576ac8.js"
   ]
 }
