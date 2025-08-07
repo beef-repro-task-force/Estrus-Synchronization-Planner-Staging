@@ -59,6 +59,11 @@ const ListView = (props) => {
     ai_with_sexed_semen_plus_conventional = "AI females in estrus";
     nonestrous_females = "Inject 2cc Cystorelin (GnRH) to all females.";
     cidr_device = "Remove the CIDR device from each female.";
+
+  }
+
+  if (SemenType === "Conventional") {
+    estrus_detection_aid = "Apply estrus detection aid.";
   }
 
   switch (true) {

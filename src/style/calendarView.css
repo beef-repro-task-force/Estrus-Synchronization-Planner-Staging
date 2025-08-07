@@ -29,11 +29,52 @@
 @media print {
 
     body, html, #wrapper {
-        width: 100%;
-       }
+      width: 100%;
+    }
 
-      div {
-       overflow: visible !important;
-      }
+    div {
+      overflow: visible !important;
+    }
 
+    .fc-scrollgrid  {
+      max-width: 90% !important;
+    }
+
+    .fc .fc-daygrid-day-number {
+      font-weight: bold;
+    }
+
+    .fc-h-event .fc-event-title {
+      white-space: normal;
+      overflow: visible;
+      z-index: 10;
+      box-shadow: none !important;
+      color: #000 !important;
+      font-weight: bold !important;
+      font-size: 12px !important;
+    }
+
+    .fc-daygrid-event-harness {
+      border-bottom: 1px solid #000 !important;
+    }
+
+    .fc-h-event {
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      color: #000 !important;
+    }
+
+    table.fc-scrollgrid  table.fc-col-header  {
+      width: 100% !important;
+    }
+
+    table.fc-scrollgrid .fc-daygrid-body.fc-daygrid-body-unbalanced.fc-daygrid-body-natural,
+    table.fc-scrollgrid  table.fc-scrollgrid-sync-table  {
+      width: 100% !important;
+    }
+
+    .fc-scrollgrid {
+      max-width: 100% !important;
+    }
 }

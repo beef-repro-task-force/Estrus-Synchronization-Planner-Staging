@@ -64,6 +64,10 @@ const CalendarView = (props) => {
     cidr_device = "Remove the CIDR device from each female.";
   }
 
+  if (SemenType === "Conventional") {
+    estrus_detection_aid = "Apply estrus detection aid.";
+  }
+
   switch (true) {
     case GNRH === "Cystorelin":
       selectedGNRH = "2cc Cystorelin (GnRH)";

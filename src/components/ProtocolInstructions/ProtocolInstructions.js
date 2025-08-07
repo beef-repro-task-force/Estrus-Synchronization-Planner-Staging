@@ -72,6 +72,10 @@ const ProtocolInstructions = (props) => {
     cidr_device = "Remove the CIDR device from each female.";
   }
 
+  if (SemenType === "Conventional") {
+    estrus_detection_aid = "Apply estrus detection aid.";
+  }
+
   switch (true) {
     case GNRH === "Cystorelin":
       selectedGNRH = "2cc Cystorelin (GnRH)";
@@ -233,8 +237,9 @@ const ProtocolInstructions = (props) => {
 
     listOfInstrucitons.forEach((instruction) => {
       let description = instruction.lines.map((line) => line.label).join("\n");
+      let title = instruction.lines.map((line) => line.label).join(" ");
       let eventDictionary = {};
-      eventDictionary["title"] = description || "";
+      eventDictionary["title"] = title || "";
       eventDictionary["description"] = description;
 
       const eventDate = dayjs(instruction.dateTime, "MM/DD/YYYY HH:mm");
