@@ -24,7 +24,7 @@
         "InSynch",
         "Lutalyse",
         "ProstaMate",
-        "HiConc.Lutalyse",
+        "Lutalyse HighCon",
         "Synchsure",
         "PG"
       ]
@@ -95,7 +95,7 @@
           {
             "dateAdjustment": 120,
             "lines": [
-              { "label": "Inject (PG) to all females not detected in heat." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat." },
               { "label": "<<ai_after_standing_heat>>" },
               { "label": "( no time constraint )" }
             ],
@@ -3776,6 +3776,7 @@
             "lines": [
               { "label": "Remove the CIDR device from each female." },
               { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "<<estrus_detection_aid>>" },
               { "hourAdjustment": "0" }
             ],
             "isPg": true,
@@ -3786,6 +3787,7 @@
             "lines": [
               { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
               { "label": "Fixed Time AI between:" },
+              { "label": "<<ai_females_showing_estrus>>" },
               { "hourAdjustment": "-2" },
               { "hourAdjustment": "2" }
             ],

@@ -20,6 +20,7 @@ const ProtocolInstructions = (props) => {
     BullTurnIn,
     GestationPeriod,
     SemenType,
+    SystemType,
   } = props;
 
   //Variable to determine what page we are on
@@ -72,7 +73,7 @@ const ProtocolInstructions = (props) => {
     cidr_device = "Remove the CIDR device from each female.";
   }
 
-  if (SemenType === "Conventional") {
+  if (SemenType === "Conventional" && SystemType === "Split Time AI") {
     estrus_detection_aid = "Apply estrus detection aid.";
   }
 
@@ -115,7 +116,7 @@ const ProtocolInstructions = (props) => {
     case PG === "ProstaMate":
       selectedPG = "5cc ProstaMate (PG)";
       break;
-    case PG === "HiConc.Lutalyse":
+    case PG === "Lutalyse HighCon":
       selectedPG = "2cc HiConc.Lut. (PG)";
       break;
     case PG === "Synchsure":
@@ -328,6 +329,7 @@ const ProtocolInstructions = (props) => {
           BullTurnIn={BullTurnIn}
           GestationPeriod={GestationPeriod}
           SemenType={SemenType}
+          SystemType={SystemType}
         />
       ) : (
         <CalendarView
@@ -339,6 +341,7 @@ const ProtocolInstructions = (props) => {
           BullTurnIn={BullTurnIn}
           GestationPeriod={GestationPeriod}
           SemenType={SemenType}
+          SystemType={SystemType}
         />
       )}
     </>

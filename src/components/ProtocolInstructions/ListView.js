@@ -13,6 +13,7 @@ const ListView = (props) => {
     PG,
     SemenType,
     BullTurnIn,
+    SystemType,
   } = props;
 
   // text changes
@@ -62,7 +63,7 @@ const ListView = (props) => {
 
   }
 
-  if (SemenType === "Conventional") {
+  if (SemenType === "Conventional" && SystemType === "Split Time AI") {
     estrus_detection_aid = "Apply estrus detection aid.";
   }
 
@@ -105,7 +106,7 @@ const ListView = (props) => {
     case PG === "ProstaMate":
       selectedPG = "5cc ProstaMate (PG)";
       break;
-    case PG === "HiConc.Lutalyse":
+    case PG === "Lutalyse HighCon":
       selectedPG = "2cc HiConc.Lut. (PG)";
       break;
     case PG === "Synchsure":

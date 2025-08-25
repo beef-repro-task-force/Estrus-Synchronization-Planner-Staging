@@ -11,7 +11,7 @@ import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import swal from "sweetalert";
 import dayjs from "dayjs";
-import utc from 'dayjs/plugin/utc';
+import utc from "dayjs/plugin/utc";
 
 import ProtocolData from "../components/Protocols.json";
 
@@ -40,6 +40,7 @@ const UserInput = (props) => {
     setBullTurnIn,
     GestationPeriod,
     setGestationPeriod,
+    ExpectedCalvingDate,
   } = props;
 
   // set the data for each select options
@@ -263,7 +264,14 @@ const UserInput = (props) => {
       <br />
       <br />
       <br />
-
+      <InputLabel>
+        <strong>
+          Expected Calving Date: {ExpectedCalvingDate.format("MM/DD/YYYY")}
+        </strong>
+      </InputLabel>
+      <br />
+      <br />
+      <br />
       <Button
         onClick={() => {
           CheckDataAndSubmit();

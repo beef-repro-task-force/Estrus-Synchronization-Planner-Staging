@@ -14,8 +14,8 @@ const CalendarView = (props) => {
     PG,
     SemenType,
     BullTurnIn,
+    SystemType,
   } = props;
-
 
   // text changes
   let selectedGNRH;
@@ -64,7 +64,7 @@ const CalendarView = (props) => {
     cidr_device = "Remove the CIDR device from each female.";
   }
 
-  if (SemenType === "Conventional") {
+  if (SemenType === "Conventional" && SystemType === "Split Time AI") {
     estrus_detection_aid = "Apply estrus detection aid.";
   }
 
@@ -107,7 +107,7 @@ const CalendarView = (props) => {
     case PG === "ProstaMate":
       selectedPG = "5cc ProstaMate (PG)";
       break;
-    case PG === "HiConc.Lutalyse":
+    case PG === "Lutalyse HighCon":
       selectedPG = "2cc HiConc.Lut. (PG)";
       break;
     case PG === "Synchsure":

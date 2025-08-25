@@ -24,6 +24,10 @@ function Home() {
   // arrays for the rules engine to store valid protocols
   const [preferList, setPreferList] = useState([]);
   const [lessPreferList, setLessPreferList] = useState([]);
+  const [ExpectedCalvingDate, setExpectedCalvingDate] = useState(
+    DateToStartBreeding.add(GestationPeriod, "day")
+  );
+
   // arrays for user selections
 
   // grab the data from the json file and split it into arrays
@@ -43,6 +47,10 @@ function Home() {
         setLoadingContainer(false);
       });
   }, []);
+
+  useEffect(() => {
+    setExpectedCalvingDate(DateToStartBreeding.add(GestationPeriod, "day"));
+  }, [DateToStartBreeding, GestationPeriod]);
 
   if (UserFlow === 1) {
     return (
@@ -71,6 +79,7 @@ function Home() {
             setUserFlow={setUserFlow}
             protocols={protocols}
             parameters={parameters}
+            ExpectedCalvingDate={ExpectedCalvingDate}
           />
         ) : (
           <center style={{ margin: 40 }} data-testid="loading-spinner">
@@ -113,6 +122,7 @@ function Home() {
         BullTurnIn={BullTurnIn}
         GestationPeriod={GestationPeriod}
         SemenType={SemenType}
+        SystemType={SystemType}
       />
     );
   }
