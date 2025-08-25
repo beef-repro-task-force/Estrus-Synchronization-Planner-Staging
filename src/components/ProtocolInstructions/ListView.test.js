@@ -19,7 +19,6 @@ describe('ListView Component', () => {
           { label: '<<ai_after_standing_heat>>' },
           { label: 'Apply CIDR device' },
           { label: '<<current_time>>' },
-          { label: '' }
         ]
       },
       {
@@ -30,9 +29,7 @@ describe('ListView Component', () => {
         lines: [
           { label: 'Remove CIDR' },
           { label: '<<cidr_device>>' },
-          { label: '' },
           { label: '5cc Lutalyse (PG)' },
-          { label: '' }
         ]
       }
     ],
@@ -58,7 +55,6 @@ describe('ListView Component', () => {
           { label: '<<ai_after_standing_heat>>' },
           { label: 'Apply CIDR device' },
           { label: '<<current_time>>' },
-          { label: '' }
         ]
       },
       {
@@ -69,9 +65,7 @@ describe('ListView Component', () => {
         lines: [
           { label: 'Remove CIDR' },
           { label: '<<cidr_device>>' },
-          { label: '' },
           { label: '5cc Lutalyse (PG)' },
-          { label: '' }
         ]
       }
     ]

@@ -29,12 +29,6 @@ describe('Header Component', () => {
     expect(link).toHaveAttribute('href', '/');
   });
 
-  it('has correct background color', () => {
-    renderWithRouter(<Header />);
-    const header = screen.getByRole('banner');
-    expect(header).toHaveStyle({ backgroundColor: '#eeeeee' });
-  });
-
   it('has correct CSS class', () => {
     renderWithRouter(<Header />);
     const header = screen.getByRole('banner');

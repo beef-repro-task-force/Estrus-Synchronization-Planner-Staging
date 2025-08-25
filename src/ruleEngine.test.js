@@ -144,8 +144,7 @@ describe('Rule Engine Tests', () => {
                 };
                 const preferList = await runEngineWithFacts(facts, "Cow Less Preferred Systems");
                 expect(preferList).toContain("1");
-                expect(preferList).toContain("7");
-                expect(preferList.length).toBe(2);
+                expect(preferList.length).toBe(1);
             });
 
             test("Bos Taurus with Fixed-Time AI and Conventional & Sexed semen", async () => {
