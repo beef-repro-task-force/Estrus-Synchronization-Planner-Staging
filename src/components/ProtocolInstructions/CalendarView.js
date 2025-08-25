@@ -39,7 +39,6 @@ const CalendarView = (props) => {
   mga_time_change_2 = mga_time_change_2.subtract(11, "day").startOf("day");
   mga_time_change_3 = mga_time_change_3.subtract(22, "day").startOf("day");
 
-
   //store if breed females AI 16-22....
   // G14 -> Semen Type
   if (SemenType === "Conventional & Sexed") {
@@ -122,8 +121,10 @@ const CalendarView = (props) => {
 
   // Update the instructions with the date and time
   listOfInstrucitons.forEach((instruction, key) => {
-    const pgInstruction = listOfInstrucitons.find(item => item.isPg);
-    const pgDate = dateToStartBreeding.clone().add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
+    const pgInstruction = listOfInstrucitons.find((item) => item.isPg);
+    const pgDate = dateToStartBreeding
+      .clone()
+      .add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
     const breedingDate = dateToStartBreeding.clone();
     let dateReference = breedingDate;
 
@@ -134,15 +135,18 @@ const CalendarView = (props) => {
     let dateAdjustment = instruction.dateAdjustment;
 
     if (instruction.dateAdjustment === "BullTurnIn") {
-      dateAdjustment = (parseInt(BullTurnIn, 10)) * 24; // convert to hours
+      dateAdjustment = parseInt(BullTurnIn, 10) * 24; // convert to hours
     }
 
-    const mainDate = dateReference.add(dateAdjustment, instruction.dateAdjustmentUnit);
+    const mainDate = dateReference.add(
+      dateAdjustment,
+      instruction.dateAdjustmentUnit
+    );
 
-    instruction['dateReference'] = dateReference.format("MM/DD/YYYY HH:mm");
-    instruction['date'] = mainDate.format("MM/DD/YYYY");
-    instruction['dateTime'] = mainDate.format("MM/DD/YYYY HH:mm");
-    instruction['dateDay'] = mainDate.format("dddd");
+    instruction["dateReference"] = dateReference.format("MM/DD/YYYY HH:mm");
+    instruction["date"] = mainDate.format("MM/DD/YYYY");
+    instruction["dateTime"] = mainDate.format("MM/DD/YYYY HH:mm");
+    instruction["dateDay"] = mainDate.format("dddd");
 
     instruction.lines.forEach((line) => {
       // update placeholders
@@ -179,54 +183,66 @@ const CalendarView = (props) => {
         });
       }
       if (line.label === "<<mga_time_change_3>>") {
-        line.label = "Continue feeding until " + mga_time_change_3.format('MM/DD/YYYY') + ".";
+        line.label =
+          "Continue feeding until " +
+          mga_time_change_3.format("MM/DD/YYYY") +
+          ".";
       }
       if (line.label === "<<mga_time_change_2>>") {
-        line.label = "Continue feeding until " + mga_time_change_2.format('MM/DD/YYYY') + ".";
+        line.label =
+          "Continue feeding until " +
+          mga_time_change_2.format("MM/DD/YYYY") +
+          ".";
       }
       if (line.label === "<<mga_time_change>>") {
-        line.label = "Continue feeding until " + mga_time_change.format('MM/DD/YYYY') + ".";
+        line.label =
+          "Continue feeding until " +
+          mga_time_change.format("MM/DD/YYYY") +
+          ".";
       }
 
       // Update the instructions with the selected GNRH and PG
-      if (line.label?.includes(
-        "2cc Cystorelin"
-      )) {
-        line['label'] = line['label'].replace("2cc Cystorelin (GnRH)", selectedGNRH);
+      if (line.label?.includes("2cc Cystorelin")) {
+        line["label"] = line["label"].replace(
+          "2cc Cystorelin (GnRH)",
+          selectedGNRH
+        );
       }
 
-      if (line.label?.includes(
-        "5cc Lutalyse"
-      )) {
-        line['label'] = line['label'].replace("5cc Lutalyse (PG)", selectedPG);
+      if (line.label?.includes("5cc Lutalyse")) {
+        line["label"] = line["label"].replace("5cc Lutalyse (PG)", selectedPG);
       }
 
       // Add line with hour if it's that type of line
       if (line.hourAdjustment) {
-        line['label'] = mainDate.add(line.hourAdjustment, "hour").format("h:mm A");
+        line["label"] = mainDate
+          .add(line.hourAdjustment, "hour")
+          .format("h:mm A");
       }
-    })
-  })
+    });
+  });
 
   let calEventArr = [];
   let minDate = dayjs();
 
   listOfInstrucitons.forEach((instruction) => {
-    instruction.lines.filter(line => line.label).forEach((line, index) => {
-      calEventArr.push({
-        title: line.label,
-        display: "auto",
-        start: dayjs(instruction['dateTime'], "MM/DD/YYYY").format("YYYY-MM-DD"),
-        index: index,
+    instruction.lines
+      .filter((line) => line.label)
+      .forEach((line, index) => {
+        calEventArr.push({
+          title: line.label,
+          display: "auto",
+          start: dayjs(instruction["dateTime"], "MM/DD/YYYY").format(
+            "YYYY-MM-DD"
+          ),
+          index: index,
+        });
+
+        if (dayjs(instruction["dateTime"], "MM/DD/YYYY").isBefore(minDate)) {
+          minDate = dayjs(instruction["dateTime"], "MM/DD/YYYY");
+        }
       });
-
-      if (dayjs(instruction['dateTime'], "MM/DD/YYYY").isBefore(minDate)) {
-        minDate = dayjs(instruction['dateTime'], "MM/DD/YYYY");
-      }
-    })
   });
-
-
 
   return (
     <div className="calendar-container">
