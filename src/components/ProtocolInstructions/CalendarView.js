@@ -247,8 +247,7 @@ const CalendarView = (props) => {
   return (
     <div className="calendar-container">
       <h2>Protocol #{SynchronizationProtocol}</h2>
-
-      <div>
+      <div className="protocol-calendar-wrapper">
         <FullCalendar
           plugins={[dayGridPlugin]}
           initialView="dayGridMonth"
