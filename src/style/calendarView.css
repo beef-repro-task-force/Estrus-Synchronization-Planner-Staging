@@ -32,6 +32,11 @@
 }
 
 @media print {
+    @page {
+      margin: 0;
+      size: 8.2in 11in;
+      padding: 0 0.15in;
+    }
 
     body, html, #wrapper {
       width: 100%;
@@ -83,5 +88,9 @@
 
     .fc-scrollgrid {
       max-width: 100% !important;
+    }
+
+    .calendar-container {
+      padding: 0;
     }
 }
