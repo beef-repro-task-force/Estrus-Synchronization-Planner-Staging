@@ -31,11 +31,15 @@
   flex-direction: column;
 }
 
+@page {
+  margin: 0;
+  size: 8.2in 11in;
+  padding: 0 0.15in;
+}
+
 @media print {
-    @page {
-      margin: 0;
-      size: 8.2in 11in;
-      padding: 0 0.15in;
+    td, th {
+      font-size: 12px !important;
     }
 
     body, html, #wrapper {
@@ -68,6 +72,12 @@
 
     .fc-daygrid-event-harness {
       border-bottom: 1px solid #000 !important;
+    }
+    .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+      min-height: 0 !important;
+    }
+    .fc .fc-daygrid-body-natural .fc-daygrid-day-events {
+      margin-bottom: 4px !important;
     }
 
     .fc-h-event {
