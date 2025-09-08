@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Container } from "@mui/material";
 import "../../style/listView.css";
+import ReactGA from 'react-ga4';
 
 const ListView = (props) => {
   const {
@@ -15,6 +16,16 @@ const ListView = (props) => {
     BullTurnIn,
     SystemType,
   } = props;
+
+  const handlePrint = () => {
+    ReactGA.event({
+      category: "List View",
+      action: "Print",
+      label: "List View Print",
+    });
+
+    window.print();
+  };
 
   // text changes
   let selectedGNRH;
@@ -279,7 +290,7 @@ const ListView = (props) => {
           variant="outlined"
           size="large"
           onClick={() => {
-            window.print();
+            handlePrint();
           }}
         >
           Print

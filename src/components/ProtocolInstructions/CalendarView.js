@@ -4,6 +4,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import dayjs from "dayjs";
 import "../../style/calendarView.css";
+import ReactGA from 'react-ga4';
 
 const CalendarView = (props) => {
   const {
@@ -244,6 +245,16 @@ const CalendarView = (props) => {
       });
   });
 
+  const handlePrint = () => {
+    ReactGA.event({
+      category: "Calendar",
+      action: "Print",
+      label: "Calendar Print",
+    });
+
+    window.print();
+  };
+
   return (
     <div className="calendar-container">
       <h2>Protocol #{SynchronizationProtocol}</h2>
@@ -269,7 +280,7 @@ const CalendarView = (props) => {
           variant="contained"
           size="large"
           onClick={() => {
-            window.print();
+            handlePrint();
           }}
         >
           Print

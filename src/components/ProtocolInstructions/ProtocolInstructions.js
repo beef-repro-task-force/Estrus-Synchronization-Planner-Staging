@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button, Breadcrumbs, Link, Typography, Grid } from "@mui/material";
 import ListView from "./ListView";
 import CalendarView from "./CalendarView";
 import PInstructions from "../Protocols.json";
 import swal from "sweetalert";
 import dayjs from "dayjs";
+import ReactGA from 'react-ga4';
 
 const ics = require("ics");
 var FileSaver = require("file-saver");
@@ -25,6 +26,40 @@ const ProtocolInstructions = (props) => {
 
   //Variable to determine what page we are on
   const [CalendarOrListView, setCalendarOrListView] = useState(0);
+  const [hasTrackedViewChange, setHasTrackedViewChange] = useState(false);
+  const [hasTrackedInitialView, setHasTrackedInitialView] = useState(false);
+
+  useEffect(() => {
+    if (hasTrackedViewChange) {
+      const timer = setTimeout(() => {
+        ReactGA.event({
+          category: 'Protocol Instructions',
+          action: 'View Change',
+          label: CalendarOrListView === 0 ? 'List View' : 'Calendar View'
+        });
+      }, 100);
+
+      return () => clearTimeout(timer);
+    } else {
+      setHasTrackedViewChange(true);
+    }
+  }, [CalendarOrListView, hasTrackedViewChange]);
+
+  useEffect(() => {
+    if (!hasTrackedInitialView) {
+      const timer = setTimeout(() => {
+        ReactGA.event({
+          category: 'Protocol Instructions',
+          action: 'Initial View',
+          label: 'List View'
+        });
+        setHasTrackedInitialView(true);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [hasTrackedInitialView]);
+
   let ListOfInstrucitons =
     PInstructions.Protocols[0][SynchronizationProtocol].instructions;
 
@@ -233,7 +268,16 @@ const ProtocolInstructions = (props) => {
   });
 
   //Create then download the iCalendar file
-  const downloadICS = () => {
+  const downloadICS = useCallback(() => {
+    setTimeout(() => {
+      ReactGA.event({
+        category: 'Protocol Instructions',
+        action: 'Download',
+        label: 'iCalendar File',
+        protocol_type: SynchronizationProtocol
+      });
+    }, 100);
+
     let listOfEvents = [];
 
     listOfInstrucitons.forEach((instruction) => {
@@ -268,7 +312,8 @@ const ProtocolInstructions = (props) => {
       type: "text/plain;charset=utf-8",
     });
     FileSaver.saveAs(file);
-  };
+  }, [SynchronizationProtocol, listOfInstrucitons]);
+
 
   return (
     <>

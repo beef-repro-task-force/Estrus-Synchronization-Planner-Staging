@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import UserInput from "../components/userInput";
 import ValidProtocols from "../components/validProtocols";
 import ProtocolInstructions from "../components/ProtocolInstructions/ProtocolInstructions";
+import ReactGA from 'react-ga4';
 
 import { CircularProgress } from "@mui/material";
 import dayjs from "dayjs";
@@ -28,9 +29,23 @@ function Home() {
     DateToStartBreeding.add(GestationPeriod, "day")
   );
 
-  // arrays for user selections
+  const pageTitle = useCallback(() => {
+    switch (UserFlow) {
+      case 1: return "Home";
+      case 2: return "Valid Protocols";
+      case 3: return "Protocol Instructions";
+      default: return "Home";
+    }
+  }, [UserFlow]);
 
-  // grab the data from the json file and split it into arrays
+  useEffect(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/",
+      title: pageTitle(),
+    });
+  }, [UserFlow, pageTitle]);
+
   useEffect(() => {
     fetch("/Estrus-Synchronization-Planner-Staging/json-files/data.json")
       .then((response) => response.json())
