@@ -7,9 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import "./style/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const basename = window.BEEF_APP_BASENAME || "/Estrus-Synchronization-Planner-Staging";
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename='/Estrus-Synchronization-Planner-Staging'>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
