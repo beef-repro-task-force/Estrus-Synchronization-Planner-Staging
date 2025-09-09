@@ -247,9 +247,9 @@ const CalendarView = (props) => {
 
   const handlePrint = () => {
     ReactGA.event({
-      category: "Calendar",
+      category: "Calendar View",
       action: "Print",
-      label: "Calendar Print",
+      label: "Calendar View Print",
     });
 
     window.print();
