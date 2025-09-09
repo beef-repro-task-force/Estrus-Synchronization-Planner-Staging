@@ -31,10 +31,10 @@ function Home() {
 
   const pageTitle = useCallback(() => {
     switch (UserFlow) {
-      case 1: return "Home";
+      case 1: return "BeefApp - Home";
       case 2: return "Valid Protocols";
       case 3: return "Protocol Instructions";
-      default: return "Home";
+      default: return "BeefApp - Home";
     }
   }, [UserFlow]);
 
