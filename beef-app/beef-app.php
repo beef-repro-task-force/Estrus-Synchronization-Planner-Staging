@@ -2,7 +2,7 @@
 /*
 Plugin Name: Beef App
 Description: A plugin to integrate a React Beef App into WordPress.
-Version: 0.1.6
+Version: 0.1.7
 Author: Beef Reproduction Task Force
 */
 
@@ -11,6 +11,9 @@ function beef_app_enqueue_scripts() {
   wp_register_script('beef-app-config', '', [], null, false);
   wp_enqueue_script('beef-app-config');
   wp_add_inline_script('beef-app-config', "window.BEEF_APP_BASENAME = '{$current_path}';");
+  wp_add_inline_script('beef-app-config', "window.BEEF_APP_SHOW_HEADER = false;");
+  wp_add_inline_script('beef-app-config', "window.BEEF_APP_SHOW_FOOTER = false;");
+  wp_add_inline_script('beef-app-config', "window.BEEF_APP_SHOW_NAVBAR = false;");
 
   wp_enqueue_style(
       'beef-app-style',
@@ -20,7 +23,7 @@ function beef_app_enqueue_scripts() {
   // React bundle
   wp_enqueue_script(
       'beef-app-script',
-      'https://beef-repro-task-force.github.io/Estrus-Synchronization-Planner-Staging/static/js/main.bf24674c.js',
+      'https://beef-repro-task-force.github.io/Estrus-Synchronization-Planner-Staging/static/js/main.522f1535.js',
       ['beef-app-config'],
       null,
       true
