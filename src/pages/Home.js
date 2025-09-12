@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 function Home() {
   const [protocols, setProtocols] = useState([]);
   const [parameters, setParameters] = useState([]);
-  const [loadingContainer, setLoadingContainer] = useState(true);
+  const [loadingContainer, setLoadingContainer] = useState(false);
   const [BreedType, setBreedType] = useState("Bos Taurus");
   const [CowOrHeifer, setCowOrHeifer] = useState("Cow");
   const [SemenType, setSemenType] = useState("Conventional");
@@ -45,23 +45,6 @@ function Home() {
       title: pageTitle(),
     });
   }, [UserFlow, pageTitle]);
-
-  useEffect(() => {
-    fetch("/Estrus-Synchronization-Planner-Staging/json-files/data.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setLoadingContainer(false);
-        setParameters(data.Parameters);
-        setProtocols(data.Protocols);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        alert(error);
-      })
-      .finally(() => {
-        setLoadingContainer(false);
-      });
-  }, []);
 
   useEffect(() => {
     setExpectedCalvingDate(DateToStartBreeding.add(GestationPeriod, "day"));

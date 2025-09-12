@@ -12,7 +12,7 @@ import { saveAs } from "file-saver";
 import "../style/Admin.css";
 
 function Admin(){
-  
+
     // change the tab index
     const [tabIndex, setTabIndex] = useState(0);
 
@@ -28,7 +28,7 @@ function Admin(){
     const [dataCollected, setDataCollected] = useState(false);
     const [error, setError] = useState(null);
 
-    // set up protocol 
+    // set up protocol
     let [protoDictionary, setProtoDictionary] = useState([]);
     const [protocols, setProtocols ] = useState([]);
     const [editProtocolId, setEditProtocolId] = useState(null);
@@ -69,7 +69,7 @@ function Admin(){
     const [ ruleSetRow, setRuleSetRow ] = useState(1);
     const [ ruleSetRowArr, setRuleSetRowArr ] = useState([]);
     /*const [ addEngineRulesFormData, setAddEngineRulesFormData ] = useState({
-        condition:{ 
+        condition:{
             all:[]
         },
         event: { type: "" }
@@ -77,7 +77,7 @@ function Admin(){
 
     // one rule
     /*const ruleToAdd = {
-        condition:{ 
+        condition:{
             all:[]
         },
         event: { type: "" }
@@ -104,31 +104,31 @@ function Admin(){
     console.log(ruleToAdd);*/
 
     // grab the data from the json file and split it into arrays
-    useEffect(()=>{
-        fetch("json-files/data.json")
-        .then(response => response.json())
-        .then(data => {
-            setParameters(data.Parameters)
-            setEngineRules(data.Rules)
-            setProtocols(data.Protocols)
-            setCowOrHeifer(data.Parameters[0]["Cow or Heifer"])
-            setBreedType(data.Parameters[1]["Breed Type"])
-            setSemenType(data.Parameters[2]["Semen Type"])
-            setSystemType(data.Parameters[3]["System Type"])
-            setGnrh(data.Parameters[4]["GnRH"])
-            setPg(data.Parameters[5]["PG"])
-        })
-        .catch(error => {
-            console.error("Error fetching data: ", error);
-            alert(error);
-            setError(error);
-        })
-        .finally(() => {
-            setLoadingContainer(false);
-            setDataCollected(true);
-        })
-    
-    }, [])
+    // useEffect(()=>{
+    //     fetch("json-files/data.json")
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         setParameters(data.Parameters)
+    //         setEngineRules(data.Rules)
+    //         setProtocols(data.Protocols)
+    //         setCowOrHeifer(data.Parameters[0]["Cow or Heifer"])
+    //         setBreedType(data.Parameters[1]["Breed Type"])
+    //         setSemenType(data.Parameters[2]["Semen Type"])
+    //         setSystemType(data.Parameters[3]["System Type"])
+    //         setGnrh(data.Parameters[4]["GnRH"])
+    //         setPg(data.Parameters[5]["PG"])
+    //     })
+    //     .catch(error => {
+    //         console.error("Error fetching data: ", error);
+    //         alert(error);
+    //         setError(error);
+    //     })
+    //     .finally(() => {
+    //         setLoadingContainer(false);
+    //         setDataCollected(true);
+    //     })
+
+    // }, [])
 
     /*console.log({cowOrHeifer})
     console.log({breedType})
@@ -141,7 +141,7 @@ function Admin(){
     console.log({protocols})
     console.log({engineRules})
     console.log({cowOrHeifer})*/
-    
+
     /**
      * function to download all the arrays into JSON
      */
@@ -192,7 +192,7 @@ function Admin(){
         console.log("clicked form submit", protocols);
         setOpen(false);
     };
-    
+
     const handleEditFormSubmit = (e) => {
         e.preventDefault();
 
@@ -282,7 +282,7 @@ function Admin(){
                 alert("the parameter type input, was not valid");
                 break;
         }
-        
+
     };
 
     const handleParamAddFormChange = (e, paramType) => {
@@ -374,9 +374,9 @@ function Admin(){
                 break;
         }
 
-        
+
     };
-    
+
     const handleParamEditFormSubmit = (e, paramType) => {
         e.preventDefault();
 
@@ -459,12 +459,12 @@ function Admin(){
             ) : (
                 <center style={{margin: 40}}><CircularProgress /></center>
             )}
-            
+
             <Box sx={{ padding: 2 }}>
                 {tabIndex === 1 && (
                     <div>
                     <h2>Parameters</h2>
-                    <EditParameters 
+                    <EditParameters
                         editParamId = {editParamId}
                         cowOrHeifer = {cowOrHeifer}
                         breedType = {breedType}
@@ -479,7 +479,7 @@ function Admin(){
                         handleParamAddFormChange = {handleParamAddFormChange}
                         handleParamEditFormChange = {handleParamEditFormChange}
                         handleParamAddFormSubmit = {handleParamAddFormSubmit}
-                        
+
                     />
                 </div>
                 )}
@@ -488,7 +488,7 @@ function Admin(){
                 {tabIndex === 2 && (
                     <div>
                     <h2>Rules</h2>
-                    <EditRules 
+                    <EditRules
                         engineRules = {engineRules}
                         setEngineRules = {setEngineRules}
                         parameters = {parameters}
@@ -497,12 +497,12 @@ function Admin(){
                         semenType = {semenType}
                         systemType = {systemType}
                         gnrh = {gnrh}
-                        pg = {pg} 
+                        pg = {pg}
                         selectedRuleSet = {selectedRuleSet}
                         setSelectedRuleSet = {setSelectedRuleSet}
-                        ruleSetRow = {ruleSetRow} 
+                        ruleSetRow = {ruleSetRow}
                         setRuleSetRow = {setRuleSetRow}
-                        ruleSetRowArr = {ruleSetRowArr} 
+                        ruleSetRowArr = {ruleSetRowArr}
                         setRuleSetRowArr = {setRuleSetRowArr}
                     />
                 </div>
@@ -510,8 +510,8 @@ function Admin(){
             </Box>
             <Grid container direction="row" justifyContent="flex-end" alignItems="center" className="download-btn-container">
                 <Fab
-                variant="extended" 
-                color="success" 
+                variant="extended"
+                color="success"
                 aria-label="add"
                 onClick={downloadFile}
                 >
@@ -519,7 +519,7 @@ function Admin(){
                     Download
                 </Fab>
             </Grid>
-            
+
         </div>
     )
 }
@@ -527,7 +527,7 @@ function Admin(){
 export default Admin;
 
 /**
- * 
+ *
  * /**
      * function to add to the dictionary, returns updated dictionary
      */
