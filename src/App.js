@@ -8,9 +8,9 @@ import Footer from "./components/Layout/Footer";
 import "./style/App.css";
 import ReactGA from 'react-ga4';
 const TRACKING_ID = "G-PYK1ZR5YCK";
-let showHeader = false;
-let showFooter = false;
-let showNavbar = false;
+let showHeader = true;
+let showFooter = true;
+let showNavbar = true;
 
 if (typeof window.BEEF_APP_SHOW_HEADER === "boolean") {
   showHeader = window.BEEF_APP_SHOW_HEADER;
