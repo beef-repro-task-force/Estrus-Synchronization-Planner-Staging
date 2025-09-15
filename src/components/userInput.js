@@ -18,6 +18,12 @@ import ProtocolData from "../components/Protocols.json";
 import "../style/userInput.css";
 dayjs.extend(utc);
 
+let showPageTitle = true;
+
+if (typeof window.BEEF_APP_SHOW_PAGE_TITLE === "boolean") {
+  showPageTitle = window.BEEF_APP_SHOW_PAGE_TITLE;
+}
+
 const UserInput = (props) => {
   const {
     UserFlow,
@@ -74,7 +80,7 @@ const UserInput = (props) => {
 
   return (
     <div className="pageContainer">
-      <h1>Welcome to the Estrus Synchronization Planner</h1>
+      {showPageTitle && <h1>Welcome to the Estrus Synchronization Planner</h1>}
       <h2>Enter Details Below to Get Started</h2>
       <br />
 
