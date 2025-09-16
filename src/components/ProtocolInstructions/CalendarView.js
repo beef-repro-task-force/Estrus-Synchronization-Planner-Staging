@@ -224,7 +224,7 @@ const CalendarView = (props) => {
   });
 
   let calEventArr = [];
-  let minDate = dayjs();
+  let minDate = dayjs(listOfInstrucitons[0]["dateTime"], "MM/DD/YYYY");
 
   listOfInstrucitons.forEach((instruction) => {
     instruction.lines
