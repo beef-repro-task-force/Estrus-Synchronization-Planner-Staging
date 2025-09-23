@@ -252,6 +252,30 @@
         "event": {
           "type": "39"
         }
+      },
+      {
+        "conditions": {
+          "all": [
+            {
+              "fact": "BreedType",
+              "operator": "equal",
+              "value": "Bos Taurus"
+            },
+            {
+              "fact": "SystemType",
+              "operator": "equal",
+              "value": "Fixed-Time AI"
+            },
+            {
+              "fact": "SemenType",
+              "operator": "equal",
+              "value": "Conventional & Sexed"
+            }
+          ]
+        },
+        "event": {
+          "type": "39"
+        }
       }
     ]
   },
@@ -317,30 +341,6 @@
         },
         "event": {
           "type": "10"
-        }
-      },
-      {
-        "conditions": {
-          "all": [
-            {
-              "fact": "BreedType",
-              "operator": "equal",
-              "value": "Bos Taurus"
-            },
-            {
-              "fact": "SystemType",
-              "operator": "equal",
-              "value": "Fixed-Time AI"
-            },
-            {
-              "fact": "SemenType",
-              "operator": "equal",
-              "value": "Conventional & Sexed"
-            }
-          ]
-        },
-        "event": {
-          "type": "39"
         }
       },
       {
