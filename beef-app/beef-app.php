@@ -18,17 +18,16 @@ function beef_app_enqueue_scripts() {
 
   $manifest_url = 'https://beef-repro-task-force.github.io/Estrus-Synchronization-Planner-Staging/asset-manifest.json';
   $response = wp_remote_get($manifest_url);
-
   if (!is_wp_error($response)) {
       $body = wp_remote_retrieve_body($response);
       $manifest = json_decode($body, true);
+
+      print_r($manifest);
 
       if (isset($manifest['files']['main.css'])) {
           wp_enqueue_style(
               'beef-app-style',
               'https://beef-repro-task-force.github.io' . $manifest['files']['main.css'],
-              ['beef-app-config'],
-              null
           );
       }
 
