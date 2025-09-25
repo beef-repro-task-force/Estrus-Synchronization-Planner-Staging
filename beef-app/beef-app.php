@@ -26,7 +26,7 @@ function beef_app_enqueue_scripts() {
       if (isset($manifest['files']['main.css'])) {
           wp_enqueue_style(
               'beef-app-style',
-              'https://beef-repro-task-force.github.io/Estrus-Synchronization-Planner-Staging' . $manifest['files']['main.css'],
+              'https://beef-repro-task-force.github.io' . $manifest['files']['main.css'],
               ['beef-app-config'],
               null
           );
@@ -36,7 +36,7 @@ function beef_app_enqueue_scripts() {
           // React bundle
           wp_enqueue_script(
               'beef-app-script',
-              'https://beef-repro-task-force.github.io/Estrus-Synchronization-Planner-Staging' . $manifest['files']['main.js'],
+              'https://beef-repro-task-force.github.io' . $manifest['files']['main.js'],
               ['beef-app-config'],
               null,
               true
