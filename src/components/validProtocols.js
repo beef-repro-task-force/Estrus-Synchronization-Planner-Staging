@@ -140,7 +140,7 @@ const ValidProtocols = (props) => {
           })}
         </ButtonGroup>
 
-        <h2> Less Preferred Systems </h2>
+        <h2> Other Systems </h2>
         <ButtonGroup
           orientation="vertical"
           aria-label="vertical contained button group"
