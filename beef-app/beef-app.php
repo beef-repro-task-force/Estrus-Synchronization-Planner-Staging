@@ -22,12 +22,10 @@ function beef_app_enqueue_scripts() {
       $body = wp_remote_retrieve_body($response);
       $manifest = json_decode($body, true);
 
-      print_r($manifest);
-
       if (isset($manifest['files']['main.css'])) {
           wp_enqueue_style(
               'beef-app-style',
-              'https://beef-repro-task-force.github.io' . $manifest['files']['main.css'],
+              'https://beef-repro-task-force.github.io' . $manifest['files']['main.css']
           );
       }
 
