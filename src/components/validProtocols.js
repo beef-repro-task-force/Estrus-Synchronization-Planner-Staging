@@ -1,8 +1,11 @@
 import { React, useEffect, useMemo } from "react";
 import { Button, ButtonGroup } from "@mui/material";
-import ProtocolData from "./Protocols.json";
+import { getProtocolsData, getRulesData } from '../utils/dataLoader';
 
 import "../style/validProtocols.css";
+
+const ProtocolData = getProtocolsData();
+const engineRules = getRulesData();
 
 const ValidProtocols = (props) => {
   const {
@@ -19,9 +22,8 @@ const ValidProtocols = (props) => {
     setLessPreferList,
   } = props;
 
-  // create a rules engine and grab the rules
+  // create a rules engine
   const { Engine } = require("json-rules-engine");
-  const engineRules = require("./test-rules.json");
   var SynchProtocolTitleData = ProtocolData.Protocols[0];
   let selectedProtocolHeader = "";
 

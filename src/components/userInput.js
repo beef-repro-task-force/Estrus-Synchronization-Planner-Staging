@@ -13,7 +13,8 @@ import swal from "sweetalert";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
-import ProtocolData from "../components/Protocols.json";
+import { getProtocolsData } from '../utils/dataLoader';
+const ProtocolData = getProtocolsData();
 
 import "../style/userInput.css";
 dayjs.extend(utc);
