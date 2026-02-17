@@ -3,13 +3,13 @@ import { Button, Breadcrumbs, Link, Typography, Grid } from "@mui/material";
 import ListView from "./ListView";
 import CalendarView from "./CalendarView";
 import { getProtocolsData } from '../../utils/dataLoader';
-const PInstructions = getProtocolsData();
 import swal from "sweetalert";
 import dayjs from "dayjs";
 import ReactGA from 'react-ga4';
 
 const ics = require("ics");
 var FileSaver = require("file-saver");
+const PInstructions = getProtocolsData();
 
 const ProtocolInstructions = (props) => {
   const {

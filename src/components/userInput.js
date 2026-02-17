@@ -14,10 +14,10 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
 import { getProtocolsData } from '../utils/dataLoader';
-const ProtocolData = getProtocolsData();
-
 import "../style/userInput.css";
+
 dayjs.extend(utc);
+const ProtocolData = getProtocolsData();
 
 let showPageTitle = true;
 
