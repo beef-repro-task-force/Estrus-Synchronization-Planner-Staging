@@ -25,7 +25,13 @@ const ValidProtocols = (props) => {
   // create a rules engine
   const { Engine } = require("json-rules-engine");
   var SynchProtocolTitleData = ProtocolData.Protocols[0];
-  let selectedProtocolHeader = "";
+
+  // Get System Type header dynamically from ParametersMeta
+  const paramsMeta = ProtocolData.ParametersMeta || {};
+  const systemTypeMeta = paramsMeta['System Type'] || {};
+
+  // Use header from meta, or fall back to the SystemType value itself
+  let selectedProtocolHeader = systemTypeMeta[SystemType]?.header || SystemType || "";
 
   const factInput = useMemo(() => ({
     BreedType: BreedType,
@@ -33,36 +39,25 @@ const ValidProtocols = (props) => {
     SystemType: SystemType,
   }), [BreedType, SemenType, SystemType]);
 
-  switch (SystemType) {
-    case "Estrus AI":
-      selectedProtocolHeader = "Heat Detect & Breed";
-      break;
-    case "Estrus AI + Clean-up AI":
-      selectedProtocolHeader = "Heat Detect & Clean-up AI";
-      break;
-    case "Fixed-Time AI":
-      selectedProtocolHeader = "Fixed-Time AI";
-      break;
-    case "Split Time AI":
-      selectedProtocolHeader = "Split Time AI";
-      break;
-    default:
-      break;
-  }
-
   // this is for the prefer systems
   useEffect(() => {
     const fetchData1 = async () => {
       let protocolsArr = [];
+      const preferredKey = `${CowOrHeifer} Preferred Systems`;
+
+      // Check if rules exist for this animal type
+      if (!engineRules[preferredKey]) {
+        setPreferList([]);
+        return;
+      }
 
       for (
         let i = 1;
-        i <=
-        Object.keys(engineRules[`${CowOrHeifer} Preferred Systems`]).length;
+        i <= Object.keys(engineRules[preferredKey]).length;
         i++
       ) {
         let engine = new Engine();
-        engineRules[`${CowOrHeifer} Preferred Systems`][i].forEach((item) => {
+        engineRules[preferredKey][i].forEach((item) => {
           engine.addRule(item);
         });
 
@@ -82,20 +77,23 @@ const ValidProtocols = (props) => {
   useEffect(() => {
     const fetchData1 = async () => {
       let protocolsArr = [];
+      const lessPreferredKey = `${CowOrHeifer} Less Preferred Systems`;
+
+      // Check if rules exist for this animal type
+      if (!engineRules[lessPreferredKey]) {
+        setLessPreferList([]);
+        return;
+      }
 
       for (
         let i = 1;
-        i <=
-        Object.keys(engineRules[`${CowOrHeifer} Less Preferred Systems`])
-          .length;
+        i <= Object.keys(engineRules[lessPreferredKey]).length;
         i++
       ) {
         let engine = new Engine();
-        engineRules[`${CowOrHeifer} Less Preferred Systems`][i].forEach(
-          (item) => {
-            engine.addRule(item);
-          }
-        );
+        engineRules[lessPreferredKey][i].forEach((item) => {
+          engine.addRule(item);
+        });
         const data = await engine.run(factInput);
 
         data.events.forEach((item) => {

@@ -5,6 +5,9 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import dayjs from "dayjs";
 import "../../style/calendarView.css";
 import ReactGA from 'react-ga4';
+import { getProtocolsData } from '../../utils/dataLoader';
+
+const ProtocolData = getProtocolsData();
 
 const CalendarView = (props) => {
   const {
@@ -19,8 +22,6 @@ const CalendarView = (props) => {
   } = props;
 
   // text changes
-  let selectedGNRH;
-  let selectedPG;
   let listOfInstrucitons = JSON.parse(JSON.stringify(ListOfInstrucitons));
   let ai_standing_heat_txt = "";
   let ai_with_sexed_semen = "";
@@ -40,6 +41,33 @@ const CalendarView = (props) => {
   mga_time_change_2 = mga_time_change_2.subtract(11, "day").startOf("day");
   mga_time_change_3 = mga_time_change_3.subtract(22, "day").startOf("day");
 
+  // Get metadata for dynamic dosage lookup (before SemenType logic so we can use selectedGNRH)
+  const paramsMeta = ProtocolData.ParametersMeta || {};
+  const gnrhMeta = paramsMeta['GnRH'] || {};
+  const pgMeta = paramsMeta['PG'] || {};
+
+  // Build GnRH display string dynamically
+  let selectedGNRH;
+  if (gnrhMeta[GNRH]?.dosage) {
+    selectedGNRH = `${gnrhMeta[GNRH].dosage} ${GNRH} (GnRH)`;
+  } else if (GNRH === "GnRH" || !GNRH) {
+    selectedGNRH = "(GnRH)";
+  } else {
+    // Fallback for new products without dosage - just show name
+    selectedGNRH = `${GNRH} (GnRH)`;
+  }
+
+  // Build PG display string dynamically
+  let selectedPG;
+  if (pgMeta[PG]?.dosage) {
+    selectedPG = `${pgMeta[PG].dosage} ${PG} (PG)`;
+  } else if (PG === "PG" || !PG) {
+    selectedPG = "(PG)";
+  } else {
+    // Fallback for new products without dosage - just show name
+    selectedPG = `${PG} (PG)`;
+  }
+
   //store if breed females AI 16-22....
   // G14 -> Semen Type
   if (SemenType === "Conventional & Sexed") {
@@ -49,7 +77,7 @@ const CalendarView = (props) => {
       "AI with sexed semen those showing females estrus";
     ai_with_sexed_semen_plus_conventional =
       "AI with sexed semen estrous females.  All others with conventional semen.";
-    nonestrous_females = "Inject 2cc Cystorelin (GnRH) to nonestrous females.";
+    nonestrous_females = `Inject ${selectedGNRH} to nonestrous females.`;
     cidr_device =
       "Remove the CIDR device and apply estrus detection aid for each female.";
     estrus_detection_aid = "Apply estrus detection aid.";
@@ -60,64 +88,12 @@ const CalendarView = (props) => {
     ai_with_sexed_semen = "AI females in estrus";
     ai_with_sexed_semen_showing = "AI females in estrus";
     ai_with_sexed_semen_plus_conventional = "AI females in estrus";
-    nonestrous_females = "Inject 2cc Cystorelin (GnRH) to all females.";
+    nonestrous_females = `Inject ${selectedGNRH} to all females.`;
     cidr_device = "Remove the CIDR device from each female.";
   }
 
   if (SemenType === "Conventional" && SystemType === "Split Time AI") {
     estrus_detection_aid = "Apply estrus detection aid.";
-  }
-
-  switch (true) {
-    case GNRH === "Cystorelin":
-      selectedGNRH = "2cc Cystorelin (GnRH)";
-      break;
-    case GNRH === "Factrel":
-      selectedGNRH = "2cc Factrel (GnRH)";
-      break;
-    case GNRH === "Fertagyl":
-      selectedGNRH = "2cc Fertagyl (GnRH)";
-      break;
-    case GNRH === "OvaCyst":
-      selectedGNRH = "2cc OvaCyst (GnRH)";
-      break;
-    case GNRH === "GONAbreed":
-      selectedGNRH = "1cc GONAbreed (GnRH)";
-      break;
-    case GNRH === "GnRH":
-      selectedGNRH = "(GnRH)";
-      break;
-    default:
-      break;
-  }
-
-  switch (true) {
-    case PG === "Estrumate":
-      selectedPG = "2cc Estrumate (PG)";
-      break;
-    case PG === "EstroPLAN":
-      selectedPG = "2cc EstroPLAN (PG)";
-      break;
-    case PG === "InSynch":
-      selectedPG = "5cc InSynch (PG)";
-      break;
-    case PG === "Lutalyse":
-      selectedPG = "5cc Lutalyse (PG)";
-      break;
-    case PG === "ProstaMate":
-      selectedPG = "5cc ProstaMate (PG)";
-      break;
-    case PG === "Lutalyse HighCon":
-      selectedPG = "2cc HiConc.Lut. (PG)";
-      break;
-    case PG === "Synchsure":
-      selectedPG = "2cc Synchsure (PG)";
-      break;
-    case PG === "PG":
-      selectedPG = "(PG)";
-      break;
-    default:
-      break;
   }
 
   // Update the instructions with the date and time
@@ -203,13 +179,20 @@ const CalendarView = (props) => {
       }
 
       // Update the instructions with the selected GNRH and PG
+      // Handle new placeholder format
+      if (line.label?.includes("<<gnrh_type>>")) {
+        line["label"] = line["label"].replace("<<gnrh_type>>", selectedGNRH);
+      }
+      if (line.label?.includes("<<pg_type>>")) {
+        line["label"] = line["label"].replace("<<pg_type>>", selectedPG);
+      }
+      // Handle legacy hardcoded format
       if (line.label?.includes("2cc Cystorelin")) {
         line["label"] = line["label"].replace(
           "2cc Cystorelin (GnRH)",
           selectedGNRH
         );
       }
-
       if (line.label?.includes("5cc Lutalyse")) {
         line["label"] = line["label"].replace("5cc Lutalyse (PG)", selectedPG);
       }
