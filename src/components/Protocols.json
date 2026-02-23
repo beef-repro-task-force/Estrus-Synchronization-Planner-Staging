@@ -3939,7 +3939,8 @@
         "calendar": [],
         "instructions": [
           {
-            "dateAdjustment": "-408",
+            "dateAdjustment": "-336",
+            "fromPg": true,
             "lines": [
               { "label": "Insert one CIDR device in each female." },
               { "label": "Inject 5cc Lutalyse (PG) to all females." }
@@ -3947,7 +3948,8 @@
             "dateAdjustmentUnit": "hours"
           },
           {
-            "dateAdjustment": "-240",
+            "dateAdjustment": "-168",
+            "fromPg": true,
             "lines": [
               { "label": "Inject 2cc Cystorelin (GnRH) in all females." },
               { "label": "( no time constraint )" }
