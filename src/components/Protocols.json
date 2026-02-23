@@ -4036,7 +4036,8 @@
         "calendar": [],
         "instructions": [
           {
-            "dateAdjustment": "-240",
+            "dateAdjustment": "-168",
+            "fromPg": true,
             "lines": [
               { "label": "Insert one CIDR device in each female." },
               { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
