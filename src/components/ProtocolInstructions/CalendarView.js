@@ -182,9 +182,13 @@ const CalendarView = (props) => {
       // Handle new placeholder format
       if (line.label?.includes("<<gnrh_type>>")) {
         line["label"] = line["label"].replace("<<gnrh_type>>", selectedGNRH);
+        // Remove duplicate suffix if instruction already had it
+        line["label"] = line["label"].replace("(GnRH) (GnRH)", "(GnRH)");
       }
       if (line.label?.includes("<<pg_type>>")) {
         line["label"] = line["label"].replace("<<pg_type>>", selectedPG);
+        // Remove duplicate suffix if instruction already had it
+        line["label"] = line["label"].replace("(PG) (PG)", "(PG)");
       }
       // Handle legacy hardcoded format
       if (line.label?.includes("2cc Cystorelin")) {
