@@ -1,0 +1,4875 @@
+{
+  "Parameters": [
+    {
+      "Cow or Heifer": ["Cow", "Heifer"],
+      "Breed Type": ["Bos Taurus", "Bos Indicus"],
+      "Semen Type": ["Conventional", "Conventional & Sexed"],
+      "System Type": [
+        "Estrus AI",
+        "Estrus AI + Clean-up AI",
+        "Fixed-Time AI",
+        "Split Time AI"
+      ],
+      "GnRH": [
+        "Cystorelin",
+        "Factrel",
+        "Fertagyl",
+        "OvaCyst",
+        "GONAbreed",
+        "GnRH"
+      ],
+      "PG": [
+        "Estrumate",
+        "EstroPLAN",
+        "InSynch",
+        "Lutalyse",
+        "ProstaMate",
+        "Lutalyse HighCon",
+        "Synchsure",
+        "PG"
+      ]
+    }
+  ],
+  "NotVerified": [4, 5, 8, 9, 11, 17, 18, 20, 21, 24],
+  "Done": [
+    1, 2, 3, 6, 7, 10,
+    12, 13, 14, 15, 16, 19,
+    22, 23, 25, 26, 27, 28, 29, 30,
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48
+  ],
+  "Protocols": [
+    {
+      "0": {
+        "id": 0,
+        "SynchronizationSystemTitle": "Select a Protocol"
+      },
+      "1": {
+        "id": 1,
+        "SynchronizationSystemTitle": "1 Injection Prostaglandin (prior estrus detection)",
+        "NumberOfPGFShotsPerFemale": 0.75,
+        "NumberOfGnRHShotsPerFemale": 0,
+        "NumberOfCIDRsPerFemale": 0,
+        "NumberOfDaysOnMGA": 0,
+        "NumberOfDaysDrylot": 0,
+        "NumberOfDaysAI": 12,
+        "NumberOfTechTrips": 24,
+        "NumberOfHeatChecks": 24,
+        "NumberOfChuteTimes": 2,
+        "ResponseStartPercentage": 0.75,
+        "ConcpeptionStartPercentage": 0.4,
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": 10,
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": 12,
+        "PullCIDR": "x",
+        "PGShot": 96,
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": 0,
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": 120,
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": 192,
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": 288,
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": 504,
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "2": {
+        "id": 2,
+        "SynchronizationSystemTitle": "1 Injection Prostaglandin (no prior estrus detection)",
+        "NumberOfPGFShotsPerFemale": "0.97",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "6",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "8",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              {
+                "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat."
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "Peak heat at 36 - 72 hours after PG." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "3": {
+        "id": 3,
+        "SynchronizationSystemTitle": "2 Injection Prostaglandin (no prior estrus detection)",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "20",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-336",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "4": {
+        "notVerified": true,
+        "id": 4,
+        "SynchronizationSystemTitle": "1 Injection with 2nd Injection to Non-Responders",
+        "NumberOfPGFShotsPerFemale": "1.17",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "11",
+        "NumberOfTechTrips": "22",
+        "NumberOfHeatChecks": "22",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "11",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat." },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Peak heat at 60 - 72 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "Breed females AI 10-14 hours after standing heat." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "5": {
+        "id": 5,
+        "SynchronizationSystemTitle": "MGA + Prostaglandin (17 day between)",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "37",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "6",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "37",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-744",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-432",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-384",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Peak heat at 60 - 72 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "6": {
+        "id": 6,
+        "SynchronizationSystemTitle": "MGA + Prostaglandin",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "39",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "14",
+        "NumberOfHeatChecks": "14",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "39",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-768",
+            "lines": [
+              {
+                "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day."
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              {
+                "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!"
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "step4": "( no time constraint )"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Peak heat at 60 - 72 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "144",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "7": {
+        "id": 7,
+        "SynchronizationSystemTitle": "Select Synch",
+        "NumberOfPGFShotsPerFemale": "0.93",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "8",
+        "NumberOfTechTrips": "16",
+        "NumberOfHeatChecks": "16",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "9",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "x",
+        "PGShot": "24",
+        "GNRH": "-144",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-144",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              {
+                "label": "Inject 5cc Lutalyse (PG) to all females not detected in heat."
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Peak heat at 36 - 72 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "168",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "8": {
+        "id": 8,
+        "SynchronizationSystemTitle": "MGA Select",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "39",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-768",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Peak heat at 60 - 72 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "9": {
+        "id": 9,
+        "SynchronizationSystemTitle": "MGA Select with E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "36",
+        "NumberOfDaysAI": "4",
+        "NumberOfTechTrips": "8",
+        "NumberOfHeatChecks": "7",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "2.8000000000000003",
+        "maxMGA": "2.8000000000000003",
+        "SumMINs": "8.50",
+        "SumMAXs": "11.40",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-768",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "-2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "hourAdjustment": "-2" },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:" },
+              { "hourAdjustment": "-12" },
+              { "hourAdjustment": "6" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "10": {
+        "id": 10,
+        "SynchronizationSystemTitle": "CO-Synch with Fixed-Time AI 48 +/-2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "10",
+        "PullCIDR": "x",
+        "PGShot": "-48",
+        "GNRH": "-216",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-48",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females " },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "11": {
+        "id": 11,
+        "SynchronizationSystemTitle": "Co Synch - (GnRH + PGF2a + GnRH 48 hr calf removal)",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "2",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "-48",
+        "GNRH": "-216",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-48",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "12": {
+        "id": 12,
+        "SynchronizationSystemTitle": "7-11 Synch",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "7",
+        "NumberOfDaysDrylot": "23",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "8",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "23",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              {
+                "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day."
+              },
+              { "label": "<<mga_time_change_2>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-264",
+            "lines": [
+              { "label": "Last day to feed MGA at .5 mg/hd/day." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Peak heat at 48 - 60 hours after PG." },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "120",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "13": {
+        "id": 13,
+        "SynchronizationSystemTitle": "OvSynch",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "x",
+        "PGShot": "-64",
+        "GNRH": "-20",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-234",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-66",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-18",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females at: " },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-4" },
+              { "hourAdjustment": "4" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "14": {
+        "SynchronizationSystemTitle": "Select Synch + CIDR",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "0",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "Peak heat at 36 - 48 hours after PG." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "144",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "15": {
+        "SynchronizationSystemTitle": "7 Day CIDR+PG",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "0.45",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "0",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Start heat detection." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              {
+                "label": "Peak period for females in heat if CIDR is removed early in day."
+              },
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "144",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "16": {
+        "SynchronizationSystemTitle": "Select Synch + CIDR with E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "4",
+        "NumberOfTechTrips": "8",
+        "NumberOfHeatChecks": "7",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "16.70",
+        "SumMAXs": "19.60",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-6",
+        "PGShot": "-6",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "Start heat detection." }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "17": {
+        "SynchronizationSystemTitle": "MGA Select with Fixed-Time AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "36",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "-72",
+        "GNRH": "-240",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-840",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-528",
+            "lines": [
+              { "label": "Last day to feed MGA at .5 mg/hd/day." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "OnDay": "-480",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "18": {
+        "SynchronizationSystemTitle": "7-11 Synch with Fixed-Time AI",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "7",
+        "NumberOfDaysDrylot": "21",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "-72",
+        "GNRH": "-132",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-552",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Last day to feed MGA at .5 mg/hd/day." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-192",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-144",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-48",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "hourAdjustment": "44347.91667" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "19": {
+        "SynchronizationSystemTitle": "Select Synch -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "0.93",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "11",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.3",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "5.70",
+        "SumMAXs": "8.60",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "x",
+        "PGShot": "48",
+        "GNRH": "-150",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-144",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              {
+                "label": "Inject 5cc Lutalyse (PG) to females not bred AI at:"
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "96",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "20": {
+        "SynchronizationSystemTitle": "7-11 Synch -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1.96",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "7",
+        "NumberOfDaysDrylot": "21",
+        "NumberOfDaysAI": "4",
+        "NumberOfTechTrips": "8",
+        "NumberOfHeatChecks": "7",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "6",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "2.8000000000000003",
+        "maxMGA": "2.8000000000000003",
+        "SumMINs": "8.50",
+        "SumMAXs": "11.40",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "-174",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change_2>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-264",
+            "lines": [
+              { "label": "Last day to feed MGA at .5 mg/hd/day." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at:" },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "21": {
+        "SynchronizationSystemTitle": "CO-Synch -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "0.97",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "4",
+        "NumberOfTechTrips": "8",
+        "NumberOfHeatChecks": "7",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "7",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "0",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "2.90",
+        "SumMAXs": "8.60",
+        "DaysStartToEnd": "",
+        "PullCIDR": "x",
+        "PGShot": "48",
+        "GNRH": "-126",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-120",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+            {"label": "Continue heat detection."},
+            {"label": "<<ai_after_standing_heat>>"},
+            {"label": "Inject 5cc Lutalyse (PG) to all females."},
+            { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+             "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "22": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Fixed-Time AI 63 +/-3",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "6",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-63",
+        "PGShot": "-63",
+        "GNRH": "-231",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "3",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hour",
+            "fromPg": true
+          },
+          {
+            "dateAdjustment": "-63",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females." },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-3" },
+              { "hourAdjustment": "3" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "23": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Fixed-Time AI 54 +/- 2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "6",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "10",
+        "PullCIDR": "-54",
+        "PGShot": "-54",
+        "GNRH": "-222",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-222",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-54",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females at:" },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "510",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "24": {
+        "SynchronizationSystemTitle": "CO-Synch + CIDR -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.35",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "3",
+        "NumberOfTechTrips": "6",
+        "NumberOfHeatChecks": "6",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "2.9",
+        "maxGnRH": "5.8",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "16.70",
+        "SumMAXs": "19.60",
+        "DaysStartToEnd": "",
+        "PullCIDR": "-6",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "hourAdjustment": "0" },
+              { "label": "Start heat detection." }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "Peak heat at 60 - 72 hours after PG." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "25": {
+        "SynchronizationSystemTitle": "7 Day CIDR+PG -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0.35",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "3",
+        "NumberOfTechTrips": "6",
+        "NumberOfHeatChecks": "6",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "0",
+        "maxGnRH": "2.9",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "13.80",
+        "SumMAXs": "16.70",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-6",
+        "PGShot": "0",
+        "GNRH": "-168",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "( no time constraint )" },
+              { "hourAdjustment": "12" },
+              { "label": "Start heat detection." }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "26": {
+        "SynchronizationSystemTitle": "MGA + PG -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0.35",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "36",
+        "NumberOfDaysAI": "4",
+        "NumberOfTechTrips": "8",
+        "NumberOfHeatChecks": "8",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "0",
+        "maxGnRH": "2.9",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "2.8000000000000003",
+        "maxMGA": "2.8000000000000003",
+        "SumMINs": "5.60",
+        "SumMAXs": "8.50",
+        "DaysStartToEnd": "36",
+        "PullCIDR": "x",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-768",
+            "lines": [
+              {
+                "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day."
+              },
+              { "label": "<<mga_time_change>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              {
+                "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!"
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Continue heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "27": {
+        "SynchronizationSystemTitle": "MGA + PG -- Fixed-Time AI 72 +/-2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "36",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "2",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "2",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "36",
+        "PullCIDR": "x",
+        "PGShot": "-72",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-840",
+            "lines": [
+              {
+                "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day."
+              },
+              { "label": "<<mga_time_change_3>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-528",
+            "lines": [{ "label": "Last day to feed MGA at .5 mg/hd/day." }],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-480",
+            "lines": [
+              {
+                "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!"
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) in all females. " },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "28": {
+        "SynchronizationSystemTitle": "CiDR Select -- Fixed-Time AI 72 +/-2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "5",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "0.4",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "34",
+        "PullCIDR": "-456",
+        "PGShot": "-72",
+        "GNRH": "-240",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-792",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [
+              { "label": "Remove the CIDR device from each female" },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "336",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "29": {
+        "SynchronizationSystemTitle": "5 Day CO-Synch+CIDR -- Fixed-Time AI 72 +/-2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "9",
+        "PullCIDR": "-72",
+        "PGShot": "-72",
+        "GNRH": "-192",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-120",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hour",
+            "fromPg": true
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "<<cidr_device>>" },
+              { "label": "Inject 5cc Lutalyse (PG) in all females at: " },
+              { "hourAdjustment": "0" },
+              {
+                "label": "Give 2nd injection, 5cc Lutalyse (PG) to all females 8 +/-2 hours after first injection"
+              }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "dateAdjustmentUnit": "hours",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ]
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hour",
+            "fromPg": true
+          }
+        ]
+      },
+      "30": {
+        "SynchronizationSystemTitle": "14 Day CIDR+PG -- E-AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "0.75",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "8",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "37",
+        "PullCIDR": "-384",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-720",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-384",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "144",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "31": {
+        "SynchronizationSystemTitle": "14 Day CIDR+PG -- E-AI and Cleanup AI",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0.35",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "8",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "2.8",
+        "maxPG": "2.8",
+        "minGnRH": "0",
+        "maxGnRH": "2.9",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "13.80",
+        "SumMAXs": "16.70",
+        "DaysStartToEnd": "34",
+        "PullCIDR": "-384",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-720",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-384",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "Start heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "32": {
+        "SynchronizationSystemTitle": "14 Day CIDR+PG -- Fixed- Time AI 66 +/-2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "34",
+        "PullCIDR": "-450",
+        "PGShot": "-66",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-792",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-66",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) in all females. " },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "33": {
+        "SynchronizationSystemTitle": "PG 6 Day CIDR -- E-AI and Cleanup AI ",
+        "NumberOfPGFShotsPerFemale": "1.7",
+        "NumberOfGnRHShotsPerFemale": "0.9",
+        "NumberOfCIDRsPerFemale": "0.7",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "6",
+        "NumberOfTechTrips": "12",
+        "NumberOfHeatChecks": "12",
+        "NumberOfChuteTimes": "3.4",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "8",
+        "HourWait": "",
+        "BreedingTimeRange": "12",
+        "minPG": "2.8",
+        "maxPG": "5.6",
+        "minGnRH": "0",
+        "maxGnRH": "5.8",
+        "minCiDR": "0",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "2.80",
+        "SumMAXs": "22.40",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "210",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "6",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Begin heat detection." },
+              { "label": "<<ai_after_standing_heat>>" },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "48",
+            "lines": [
+              { "label": "Heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              {
+                "label": "Insert one CIDR device in each female that was not bred."
+              },
+              {
+                "label": "Inject 2cc Cystorelin (GnRH) for each female not bred."
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "216",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) for each female not bred." },
+              { "label": "( no time constraint )" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "240",
+            "lines": [
+              { "label": "Continue heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "264",
+            "lines": [
+              { "label": "Continue heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Last day of heat detection." },
+              {
+                "label": "*Inject 2cc Cystorelin (GnRH) & inseminate nonestrous females between the hours:"
+              },
+              { "hourAdjustment": "0" },
+              { "hourAdjustment": "12" }
+            ],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "34": {
+        "SynchronizationSystemTitle": "PG 6 Day CIDR -- E-AI ",
+        "NumberOfPGFShotsPerFemale": "1.7",
+        "NumberOfGnRHShotsPerFemale": "0.7",
+        "NumberOfCIDRsPerFemale": "0.7",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "7",
+        "NumberOfTechTrips": "14",
+        "NumberOfHeatChecks": "14",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "60%",
+        "ConcpeptionStartPercentage": "45%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "8",
+        "HourWait": "",
+        "BreedingTimeRange": "",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "216",
+        "PGShot": "0",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "",
+        "HourToleranceAdjustments": "",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" },
+              { "label": "Begin heat detection." },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "Heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "72",
+            "lines": [
+              { "label": "Heat detection" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "216",
+            "lines": [
+              {
+                "label": "Insert one CIDR device in each female that was not bred."
+              },
+              {
+                "label": "Inject 2cc Cystorelin (GnRH) for each female not bred."
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "240",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) for each female not bred." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "264",
+            "lines": [
+              { "label": "Continue heat detection for 3 more days" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "288",
+            "lines": [
+              { "label": "Last day of heat detection & breeding" },
+              { "label": "<<ai_after_standing_heat>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "336",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "35": {
+        "SynchronizationSystemTitle": "PG 6 Day CIDR -- Fixed- Time AI 69 +/-3",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "45%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "6",
+        "minPG": "5.6",
+        "maxPG": "5.6",
+        "minGnRH": "5.8",
+        "maxGnRH": "5.8",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "22.40",
+        "SumMAXs": "22.40",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "-69",
+        "PGShot": "-69",
+        "GNRH": "-213",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "3",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-288",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hour"
+          },
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              {
+                "label": "Inject 2cc Cystorelin (GnRH) for each female not bred."
+              },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-69",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) for each female not bred." },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-3" },
+              { "hourAdjustment": "3" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "501",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "36": {
+        "SynchronizationSystemTitle": "PG 6 Day CIDR -- Fixed- Time AI 66 +/- 2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "45%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "5.6",
+        "maxPG": "5.6",
+        "minGnRH": "5.8",
+        "maxGnRH": "5.8",
+        "minCiDR": "11",
+        "maxCiDR": "11",
+        "minMGA": "0",
+        "maxMGA": "0",
+        "SumMINs": "22.40",
+        "SumMAXs": "22.40",
+        "DaysStartToEnd": "13",
+        "PullCIDR": "-66",
+        "PGShot": "-66",
+        "GNRH": "-210",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-288",
+            "lines": [
+              {"label": "Inject 5cc Lutalyse (PG) to all females."},
+              {"label": "( no time constraint )"}
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              {"label": "Insert one CIDR device in each female."},
+              {"label": "Inject 2cc Cystorelin (GnRH) for each female not bred."},
+              {"label": "( no time constraint )"}
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-66",
+            "lines": [
+              {"label": "Remove the CIDR device from each female."},
+              {"label": "Inject 5cc Lutalyse (GnRH) for each female not bred."},
+              {"hourAdjustment": "0"}
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              {"label": "Inject 2cc Cystorelin (GnRH) to all females."},
+              {"label": "Fixed Time AI between:"},
+              {"hourAdjustment": "-2"},
+              {"hourAdjustment": "2"}
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              {"label": "Turn clean up bulls in with females."},
+              {"label": "Immediate addition of clean-up bulls could lead to questions about parentage. "}
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "498",
+            "lines": [{"label": "21 Days since last PG"}],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "37": {
+        "SynchronizationSystemTitle": "Bos.Ind. PG 5 Day CIDR -- Fixed-Time AI 66 +/-2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "1",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "1",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "100%",
+        "ConcpeptionStartPercentage": "35%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "8",
+        "PullCIDR": "-66",
+        "PGShot": "-66",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-186",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-66",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females at: " },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "Fixed Time AI between:" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "498",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "38": {
+        "SynchronizationSystemTitle": "5 Day CO-Synch+CIDR -- Fixed-Time AI 60 +/- 4",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "0.35",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "8",
+        "PullCIDR": "-60",
+        "PGShot": "-60",
+        "GNRH": "-180",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "4",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-180",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-60",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females. " },
+              { "hourAdjustment": "0" },
+              {
+                "label": "Give 2nd injection, 5cc Lutalyse (PG) to all females 8 +/-2 hours after first injection"
+              }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-4" },
+              { "hourAdjustment": "4" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "492",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      },
+      "39": {
+        "SynchronizationSystemTitle": "7 & 7 Synch -- Fixed-Time AI 66 +/- 2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "17",
+        "PullCIDR": "-66",
+        "PGShot": "-66",
+        "GNRH": "-234",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-336",
+            "fromPg": true,
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-168",
+            "fromPg": true,
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) in all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-66",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females at: " },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "498",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "40": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Split-Time AI 63/87",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.25",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "1",
+        "maxPG": "1",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "3.00",
+        "SumMAXs": "4.00",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-63",
+        "PGShot": "-63",
+        "GNRH": "-234",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-168",
+            "fromPg": true,
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-63",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "Apply estrus detection aid" },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-3" },
+              { "hourAdjustment": "3" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "495",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "41": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Split-Time AI 54/78",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.25",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "1",
+        "maxPG": "1",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "3.00",
+        "SumMAXs": "4.00",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-54",
+        "PGShot": "-54",
+        "GNRH": "-234",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-48",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "18" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_with_sexed_semen_showing>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "42": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Fixed-Time AI 72 +/-2",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "1",
+        "maxPG": "2",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "3.00",
+        "SumMAXs": "5.00",
+        "DaysStartToEnd": "10",
+        "PullCIDR": "-72",
+        "PGShot": "-72",
+        "GNRH": "-240",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) in all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females." },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) to all nonestrous females." },
+              { "label": "AI females showing estrus with sexed semen.  All others with conventional semen" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "43": {
+        "SynchronizationSystemTitle": "PG-7 7 Day CO-Synch+CIDR -- Fixed-Time AI 72 +/-2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "1.5",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "2",
+        "maxPG": "2",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "4.00",
+        "SumMAXs": "5.00",
+        "DaysStartToEnd": "17",
+        "PullCIDR": "-72",
+        "PGShot": "-72",
+        "GNRH": "-240",
+        "DateOfAIAdjustments": "06-01-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-408",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) in all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females. " },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "0" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) in all nonestrous females." },
+              { "label": "<<ai_females_showing_estrus>>" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [
+              { "label": "21 Days since last PG" }
+            ],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "44": {
+        "SynchronizationSystemTitle": "7 Day CO-Synch+CIDR -- Split-Time AI 66/90",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "1.25",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "1",
+        "maxPG": "1",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "3.00",
+        "SumMAXs": "4.00",
+        "DaysStartToEnd": "11",
+        "PullCIDR": "-66",
+        "PGShot": "-66",
+        "GNRH": "-234",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-240",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "<<estrus_detection_aid>>" },
+              { "hourAdjustment": "-18" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_with_sexed_semen_plus_conventional>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "45": {
+        "SynchronizationSystemTitle": "14 Day CIDR PG -- Split-Time AI 66/90",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0.25",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "2",
+        "minPG": "1",
+        "maxPG": "1",
+        "minGnRH": "0",
+        "maxGnRH": "1",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "2.00",
+        "SumMAXs": "3.00",
+        "DaysStartToEnd": "34",
+        "PullCIDR": "-450",
+        "PGShot": "-66",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-792",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-456",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) in all females. " },
+              { "label": "Apply estrus detection aid." },
+              { "hourAdjustment": "-18" }
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "46": {
+        "SynchronizationSystemTitle": "5 Day CO-Synch+CIDR -- Split-Time AI 60/84",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "1.25",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "5",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "5",
+        "HourWait": "",
+        "BreedingTimeRange": "2",
+        "minPG": "2",
+        "maxPG": "2",
+        "minGnRH": "1",
+        "maxGnRH": "2",
+        "minCiDR": "1",
+        "maxCiDR": "1",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "4.00",
+        "SumMAXs": "5.00",
+        "DaysStartToEnd": "8",
+        "PullCIDR": "-60",
+        "PGShot": "-60",
+        "GNRH": "-180",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-192",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 2cc Cystorelin (GnRH) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              {"label": "Remove the CIDR device from each female."},
+              {"label": "Inject 5cc Lutalyse (PG) & apply estrus detection aid in all females. "},
+              {"hourAdjustment": "-12"},
+              {"label": "Give 2nd injection, 5cc Lutalyse (PG) to all females 8 +/- 2 hours after first injection"}
+            ],
+            "isPg": true,
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_with_sexed_semen_showing>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "47": {
+        "SynchronizationSystemTitle": "MGA + PG -- Split-Time AI 72/96",
+        "NumberOfPGFShotsPerFemale": "1",
+        "NumberOfGnRHShotsPerFemale": "0.25",
+        "NumberOfCIDRsPerFemale": "0",
+        "NumberOfDaysOnMGA": "14",
+        "NumberOfDaysDrylot": "14",
+        "NumberOfDaysAI": "2",
+        "NumberOfTechTrips": "2",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "3",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "25%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "3",
+        "HourWait": "",
+        "BreedingTimeRange": "2",
+        "minPG": "1",
+        "maxPG": "1",
+        "minGnRH": "0",
+        "maxGnRH": "1",
+        "minCiDR": "0",
+        "maxCiDR": "0",
+        "minMGA": "2.8",
+        "maxMGA": "2.8",
+        "SumMINs": "3.8",
+        "SumMAXs": "4.8",
+        "DaysStartToEnd": "37",
+        "PullCIDR": "x",
+        "PGShot": "-72",
+        "GNRH": "x",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-840",
+            "lines": [
+              { "label": "Start feeding Melengestrol Acetate (MGA) at .5 mg/hd/day." },
+              { "label": "<<mga_time_change_3>>" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-528",
+            "lines": [
+              { "label": "Last day to feed MGA at .5 mg/hd/day." }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-480",
+            "lines": [
+              { "label": "Large numbers of females will show heat the next 4 days - DO NOT BREED!" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-72",
+            "lines": [
+              { "label": "Inject 5cc Lutalyse (PG) to all females. " },
+              { "label": "Apply estrus detection aid." },
+              { "hourAdjustment": "0" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<ai_sexed_semen>>" },
+              { "label": "Target first breeding time between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "24",
+            "lines": [
+              { "label": "<<ai_with_sexed_semen_plus_conventional>>" },
+              { "label": "Nonestrous females receive 2cc Cystorelin (GnRH)" },
+              { "label": "AI remaining females between the hours:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              { "label": "Immediate addition of clean-up bulls could lead to questions about parentage. " }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "504",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "fromPg": true,
+            "dateAdjustmentUnit": "hours"
+          }
+        ]
+      },
+      "48": {
+        "SynchronizationSystemTitle": "7 & 7 Synch -- Fixed-Time AI 54 +/- 2",
+        "NumberOfPGFShotsPerFemale": "2",
+        "NumberOfGnRHShotsPerFemale": "2",
+        "NumberOfCIDRsPerFemale": "1",
+        "NumberOfDaysOnMGA": "0",
+        "NumberOfDaysDrylot": "0",
+        "NumberOfDaysAI": "1",
+        "NumberOfTechTrips": "1",
+        "NumberOfHeatChecks": "0",
+        "NumberOfChuteTimes": "4",
+        "ResponseStartPercentage": "1",
+        "ConcpeptionStartPercentage": "40%",
+        "BeginHeat": "",
+        "EndHeatDate": "",
+        "BeginMGADate": "",
+        "EndMGADate": "",
+        "DaysWorkedForLaborCosts": "4",
+        "HourWait": "",
+        "BreedingTimeRange": "4",
+        "minPG": "",
+        "maxPG": "",
+        "minGnRH": "",
+        "maxGnRH": "",
+        "minCiDR": "",
+        "maxCiDR": "",
+        "minMGA": "",
+        "maxMGA": "",
+        "SumMINs": "",
+        "SumMAXs": "",
+        "DaysStartToEnd": "17",
+        "PullCIDR": "-54",
+        "PGShot": "-54",
+        "GNRH": "-234",
+        "DateOfAIAdjustments": "06-02-21",
+        "HourToleranceAdjustments": "2",
+        "LastPGInjectionDate": "",
+        "calendar": [],
+        "instructions": [
+          {
+            "dateAdjustment": "-384",
+            "lines": [
+              { "label": "Insert one CIDR device in each female." },
+              { "label": "Inject 5cc Lutalyse (PG) to all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-216",
+            "lines": [
+              { "label": "Inject 2cc Cystorelin (GnRH) in all females." },
+              { "label": "( no time constraint )" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "-48",
+            "lines": [
+              { "label": "Remove the CIDR device from each female." },
+              { "label": "Inject 5cc Lutalyse (PG) in all females at: " },
+              { "hourAdjustment": "18" }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "0",
+            "lines": [
+              { "label": "<<nonestrous>>" },
+              { "label": "" },
+              { "label": "Fixed Time AI between:" },
+              { "hourAdjustment": "-2" },
+              { "hourAdjustment": "2" }
+            ],
+            "dateAdjustmentUnit": "hours",
+            "isPg": true
+          },
+          {
+            "dateAdjustment": "BullTurnIn",
+            "lines": [
+              { "label": "Turn clean up bulls in with females." },
+              {
+                "label": "Immediate addition of clean-up bulls could lead to questions about parentage. "
+              }
+            ],
+            "dateAdjustmentUnit": "hours"
+          },
+          {
+            "dateAdjustment": "432",
+            "lines": [{ "label": "21 Days since last PG" }],
+            "dateAdjustmentUnit": "hours",
+            "fromPg": true
+          }
+        ]
+      }
+    }
+  ]
+}
