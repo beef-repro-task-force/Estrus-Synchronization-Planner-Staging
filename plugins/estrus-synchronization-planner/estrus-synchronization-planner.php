@@ -2,7 +2,7 @@
 /*
 Plugin Name: Estrus Synchronization Planner
 Description: Integrates the React Estrus Synchronization Planner app into WordPress with ACF-based data management.
-Version: 1.4.0
+Version: 1.5.0
 Author: Beef Reproduction Task Force
 Requires Plugins: advanced-custom-fields-pro
 */
@@ -595,9 +595,11 @@ class Estrus_Synchronization_Planner {
         $has_saved_rules      = file_exists($saved_dir . 'rules.json');
         $has_saved_parameters = file_exists($saved_dir . 'parameters.json');
 
-        // Check if backups exist
+        // Check if default files exist (backup or original shipped files)
         $backups_dir = $this->get_backups_dir();
-        $has_backup = file_exists($backups_dir . 'Protocols.json');
+        $has_default_protocols  = file_exists($backups_dir . 'Protocols.json') || $this->find_json_file('Protocols.json');
+        $has_default_rules      = file_exists($backups_dir . 'test-rules.json') || $this->find_json_file('test-rules.json');
+        $has_default_parameters = $has_default_protocols; // Parameters come from Protocols.json
         ?>
         <div class="wrap">
             <h1>Estrus Synchronization Planner</h1>
@@ -702,7 +704,7 @@ class Estrus_Synchronization_Planner {
                             <input type="submit" name="do_import_protocols" class="button button-primary" value="Import" <?php echo !$acf_active ? 'disabled' : ''; ?>>
                         </p>
                     </form>
-                    <?php if ($has_backup): ?>
+                    <?php if ($has_default_protocols): ?>
                     <form method="post" style="margin-top: 8px;">
                         <?php wp_nonce_field('reset_protocols', 'reset_protocols_nonce'); ?>
                         <input type="submit" name="do_reset_protocols" class="button" value="Reset to Defaults" <?php echo !$acf_active ? 'disabled' : ''; ?> onclick="return confirm('This will clear all protocols and re-import the original defaults. Continue?');">
@@ -732,7 +734,7 @@ class Estrus_Synchronization_Planner {
                             <input type="submit" name="do_import_rules" class="button button-primary" value="Import" <?php echo !$acf_active ? 'disabled' : ''; ?>>
                         </p>
                     </form>
-                    <?php if ($has_backup): ?>
+                    <?php if ($has_default_rules): ?>
                     <form method="post" style="margin-top: 8px;">
                         <?php wp_nonce_field('reset_rules', 'reset_rules_nonce'); ?>
                         <input type="submit" name="do_reset_rules" class="button" value="Reset to Defaults" <?php echo !$acf_active ? 'disabled' : ''; ?> onclick="return confirm('This will clear all rules and re-import the original defaults. Continue?');">
@@ -762,7 +764,7 @@ class Estrus_Synchronization_Planner {
                             <input type="submit" name="do_import_parameters" class="button button-primary" value="Import" <?php echo !$acf_active ? 'disabled' : ''; ?>>
                         </p>
                     </form>
-                    <?php if ($has_backup): ?>
+                    <?php if ($has_default_parameters): ?>
                     <form method="post" style="margin-top: 8px;">
                         <?php wp_nonce_field('reset_parameters', 'reset_parameters_nonce'); ?>
                         <input type="submit" name="do_reset_parameters" class="button" value="Reset to Defaults" <?php echo !$acf_active ? 'disabled' : ''; ?> onclick="return confirm('This will clear all user input options and re-import the original defaults. Continue?');">
@@ -1723,9 +1725,13 @@ class Estrus_Synchronization_Planner {
         }
 
         $data = $this->get_protocols_data();
-        if ($data) {
-            $path = $this->get_saved_dir() . 'protocols.json';
-            file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if (!$data) {
+            wp_die('No protocol data found to save.');
+        }
+        $path = $this->get_saved_dir() . 'protocols.json';
+        $result = file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if ($result === false) {
+            wp_die('Failed to write file. Check directory permissions for: ' . esc_html(dirname($path)));
         }
 
         wp_redirect(add_query_arg([
@@ -1751,9 +1757,13 @@ class Estrus_Synchronization_Planner {
         }
 
         $data = $this->get_rules_data();
-        if ($data) {
-            $path = $this->get_saved_dir() . 'rules.json';
-            file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if (!$data) {
+            wp_die('No rules data found to save.');
+        }
+        $path = $this->get_saved_dir() . 'rules.json';
+        $result = file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if ($result === false) {
+            wp_die('Failed to write file. Check directory permissions for: ' . esc_html(dirname($path)));
         }
 
         wp_redirect(add_query_arg([
@@ -1780,14 +1790,18 @@ class Estrus_Synchronization_Planner {
         }
 
         $params_result = $this->get_parameters_data();
-        if ($params_result) {
-            // Wrap in Protocols.json-compatible structure so import_parameters() works as-is
-            $data = [
-                'Parameters' => [$params_result['values']],
-                'ParametersMeta' => $params_result['meta'],
-            ];
-            $path = $this->get_saved_dir() . 'parameters.json';
-            file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if (!$params_result) {
+            wp_die('No parameter data found to save.');
+        }
+        // Wrap in Protocols.json-compatible structure so import_parameters() works as-is
+        $data = [
+            'Parameters' => [$params_result['values']],
+            'ParametersMeta' => $params_result['meta'],
+        ];
+        $path = $this->get_saved_dir() . 'parameters.json';
+        $result = file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        if ($result === false) {
+            wp_die('Failed to write file. Check directory permissions for: ' . esc_html(dirname($path)));
         }
 
         wp_redirect(add_query_arg([
@@ -1816,8 +1830,16 @@ class Estrus_Synchronization_Planner {
             wp_die('Unauthorized');
         }
 
+        // Try backup first, fall back to original shipped file
+        $backup_path = $this->get_backups_dir() . 'Protocols.json';
+        if (!file_exists($backup_path)) {
+            $backup_path = $this->find_json_file('Protocols.json');
+        }
+        if (!$backup_path || !file_exists($backup_path)) {
+            wp_die('No default Protocols.json file found. Cannot reset.');
+        }
         $this->clear_post_type('protocol');
-        $count = $this->import_protocols($this->get_backups_dir() . 'Protocols.json');
+        $count = $this->import_protocols($backup_path);
 
         wp_redirect(add_query_arg([
             'page'     => 'esp-config',
@@ -1842,8 +1864,16 @@ class Estrus_Synchronization_Planner {
             wp_die('Unauthorized');
         }
 
+        // Try backup first, fall back to original shipped file
+        $backup_path = $this->get_backups_dir() . 'test-rules.json';
+        if (!file_exists($backup_path)) {
+            $backup_path = $this->find_json_file('test-rules.json');
+        }
+        if (!$backup_path || !file_exists($backup_path)) {
+            wp_die('No default test-rules.json file found. Cannot reset.');
+        }
         $this->clear_post_type('selection_rule');
-        $count = $this->import_rules($this->get_backups_dir() . 'test-rules.json');
+        $count = $this->import_rules($backup_path);
 
         wp_redirect(add_query_arg([
             'page'     => 'esp-config',
@@ -1868,8 +1898,16 @@ class Estrus_Synchronization_Planner {
             wp_die('Unauthorized');
         }
 
+        // Try backup first, fall back to original shipped file
+        $backup_path = $this->get_backups_dir() . 'Protocols.json';
+        if (!file_exists($backup_path)) {
+            $backup_path = $this->find_json_file('Protocols.json');
+        }
+        if (!$backup_path || !file_exists($backup_path)) {
+            wp_die('No default Protocols.json file found. Cannot reset.');
+        }
         $this->clear_post_type('app_parameter');
-        $count = $this->import_parameters($this->get_backups_dir() . 'Protocols.json');
+        $count = $this->import_parameters($backup_path);
 
         wp_redirect(add_query_arg([
             'page'     => 'esp-config',
