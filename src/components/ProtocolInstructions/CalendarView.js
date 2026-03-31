@@ -99,9 +99,13 @@ const CalendarView = (props) => {
   // Update the instructions with the date and time
   listOfInstrucitons.forEach((instruction, key) => {
     const pgInstruction = listOfInstrucitons.find((item) => item.isPg);
-    const pgDate = dateToStartBreeding
-      .clone()
-      .add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
+    let pgDate =  dateToStartBreeding.clone();
+
+    if (pgInstruction) {
+      pgDate = dateToStartBreeding
+        .clone()
+        .add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
+    }
     const breedingDate = dateToStartBreeding.clone();
     let dateReference = breedingDate;
 
