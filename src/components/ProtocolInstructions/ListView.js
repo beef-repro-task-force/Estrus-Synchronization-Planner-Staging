@@ -108,7 +108,7 @@ const ListView = (props) => {
   // Update the instructions with the date and time
   console.log('dateToStartBreeding', dateToStartBreeding)
   listOfInstrucitons.forEach((instruction, key) => {
-    const pgDate = dateToStartBreeding.clone();
+    let pgDate = dateToStartBreeding.clone();
     const pgInstruction = listOfInstrucitons.find((item) => item.isPg);
 
     if (pgInstruction) { 
