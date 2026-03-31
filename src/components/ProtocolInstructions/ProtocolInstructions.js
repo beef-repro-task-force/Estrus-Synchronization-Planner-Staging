@@ -139,10 +139,13 @@ const ProtocolInstructions = (props) => {
   }
 
   listOfInstrucitons.forEach((instruction, key) => {
+    let pgDate =  dateToStartBreeding.clone(); 
     const pgInstruction = listOfInstrucitons.find((item) => item.isPg);
-    const pgDate = dateToStartBreeding
+    if (pgInstruction) {
+      pgDate = dateToStartBreeding
       .clone()
       .add(pgInstruction.dateAdjustment, pgInstruction.dateAdjustmentUnit);
+    }
     const breedingDate = dateToStartBreeding.clone();
     let dateReference = breedingDate;
 
