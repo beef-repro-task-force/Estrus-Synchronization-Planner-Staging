@@ -216,7 +216,7 @@ const ListView = (props) => {
       }
 
       // Add line with hour if it's that type of line
-      if (line.hourAdjustment) {
+      if (line.hourAdjustment != null) {
         line["label"] = mainDate
           .add(line.hourAdjustment, "hour")
           .format("h:mm A");
